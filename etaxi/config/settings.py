@@ -40,9 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'etaxi.apps.EtaxiConfig',
+    
+    
+    # при удалении поста из БД автоматически удаляет связанные с ним файлы.
+    'django_cleanup.apps.CleanupConfig',
+    'phonenumber_field',
 ]
 
 # GEOIP_PATH = 'geo/'
+PHONENUMBER_DEFAULT_REGION = "RU"
 
 SITE_ID = 1
 
