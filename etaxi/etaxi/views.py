@@ -15,6 +15,7 @@ def home(request):
     response = dadata.iplocate(client_ip)['data']['city']
     print(client_ip)
     print(response)
+    
     return HttpResponse(f'WELCOME {client_ip} {response}')
 
 '''
