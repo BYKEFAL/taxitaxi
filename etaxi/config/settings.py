@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # при удалении поста из БД автоматически удаляет связанные с ним файлы.
     'django_cleanup.apps.CleanupConfig',
     'phonenumber_field',
+    'embed_video',
 ]
 
 # GEOIP_PATH = 'geo/'

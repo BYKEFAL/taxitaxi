@@ -1,5 +1,6 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
+from embed_video.fields import EmbedVideoField
 
 # Create your models here.
 class City(models.Model):
@@ -54,7 +55,8 @@ class TaxiCar(models.Model):
     discription = models.TextField(verbose_name='Описание')
     image = models.ImageField(upload_to='images/cars/%Y-%m-%d/', verbose_name='Фото')
     dateCreation = models.DateTimeField(auto_now_add=True)
-    city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name='Город')
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, verbose_name='Город', null=True)
+    price = models.IntegerField(verbose_name='Цена')
     class Meta:
         verbose_name_plural = "Автомобили"
         verbose_name = 'Автомобиль'
@@ -68,7 +70,9 @@ class ParkManager(models.Model):
     phone_number = PhoneNumberField(unique=True, null=False, blank=False, verbose_name='Телефон')
     email = models.EmailField(verbose_name='Почта')
     dateCreation = models.DateTimeField(auto_now_add=True)
-    city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name='Город')
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, verbose_name='Город', null=True)
+    position = models.CharField(max_length=200, verbose_name='Должность')
+    
     
     class Meta:
         verbose_name_plural = "Менеджеры таксопарков"
@@ -79,7 +83,7 @@ class ParkManager(models.Model):
     
 class CarPark(models.Model):
     name = models.CharField(verbose_name='название таксопарка', max_length=50, blank=False, null=False)
-    parkManager = models.ForeignKey(ParkManager, on_delete=models.CASCADE, verbose_name='Менеджер')
+    parkManager = models.ForeignKey(ParkManager, on_delete=models.SET_NULL, verbose_name='Менеджер', null=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name='Город')
     address = models.TextField(verbose_name='Адрес')
     phone_number = PhoneNumberField(unique=True, verbose_name='Телефон')
@@ -93,12 +97,27 @@ class CarPark(models.Model):
     def __str__(self):
         return f'г.{self.city} таксопарк {self.name} {self.address}'
     
+class FeedbackVideo(models.Model):
+    city = models.ForeignKey(City, on_delete=models.CASCADE, verbose_name='Город')
+    name = models.CharField(verbose_name='Название видео', max_length=50, blank=False, null=False)
+    video = models.FileField(upload_to='video/feedback/%Y-%m-%d/', verbose_name='Видеофайл')
+    youtube = EmbedVideoField(blank=True, null=True, verbose_name='Youtube ссылка')
+    dateCreation = models.DateTimeField(auto_now_add=True)
+    
+    
+    class Meta:
+        verbose_name_plural = "Видеоотзывы"
+        verbose_name = 'Видеоотзыв'
+        
+    def __str__(self):
+        return f'г.{self.city} {self.name}' 
+    
 class TaxiCarMany(models.Model):
     carParkThrough = models.ForeignKey(CarPark, on_delete=models.CASCADE)
     taxiCarThrough = models.ForeignKey(TaxiCar, on_delete=models.CASCADE, verbose_name="автомобили таксопарка") 
     
 class DriverMany(models.Model):
     taxiCarThrough = models.ForeignKey(TaxiCar, on_delete=models.CASCADE)
-    driverThrough = models.ForeignKey(Driver, on_delete=models.CASCADE)
+    driverThrough = models.ForeignKey(Driver, on_delete=models.CASCADE, verbose_name="автомобиль арендовали")
     
     
