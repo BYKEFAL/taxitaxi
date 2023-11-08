@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse
+from django.template.response import TemplateResponse
 import requests
 import json
 from ipware import get_client_ip
@@ -15,8 +16,10 @@ def home(request):
     response = dadata.iplocate(client_ip)['data']['city']
     print(client_ip)
     print(response)
+    header = 'Тест кнопки'
+    data = {'ip': client_ip, 'city': response, 'header': header }
     
-    return HttpResponse(f'WELCOME {client_ip} {response}')
+    return render(request, 'default.html', data)
 
 '''
 Получение ip клиента через х-форвардед-фор, с последующим получением данных о Геолокации чере стороннее API Abstract
