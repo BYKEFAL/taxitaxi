@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     
     'etaxi.apps.EtaxiConfig',
     
-    
     # при удалении поста из БД автоматически удаляет связанные с ним файлы.
     'django_cleanup.apps.CleanupConfig',
     'phonenumber_field',

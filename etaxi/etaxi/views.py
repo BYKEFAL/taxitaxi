@@ -13,7 +13,8 @@ dadata = Dadata(token)
 def home(request):
     client_ip, is_routable = get_client_ip(request)
     client_ip = '176.59.144.81' #Тестовый IP не забыть удалить
-    response = dadata.iplocate(client_ip)['data']['city']
+    # response = dadata.iplocate(client_ip)['data']['city']
+    response = 'ответ от АПИ'
     print(client_ip)
     print(response)
     header = 'Тест кнопки'

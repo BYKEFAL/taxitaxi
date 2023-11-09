@@ -9,6 +9,7 @@ charset-normalizer==3.3.2
 dadata==21.10.1
 Django==4.2.7
 django-cleanup==8.0.0
+django-embed-video==1.4.9
 django-ipware==5.0.2
 django-phonenumber-field==7.2.0
 exceptiongroup==1.1.3

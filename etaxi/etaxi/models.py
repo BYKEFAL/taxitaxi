@@ -35,7 +35,7 @@ class Driver(models.Model):
         verbose_name = 'Водитель'
         
     def __str__(self):
-        return self.name
+        return f'{self.name} ({self.phone_number})'
     
 class TaxiCar(models.Model):
     SEDAN = 'SD'
@@ -64,7 +64,7 @@ class TaxiCar(models.Model):
     status = models.BooleanField(default=False, verbose_name='Занят/Свободен')
     driver = models.ManyToManyField(Driver, through='DriverMany')
     discription = models.TextField(verbose_name='Описание')
-    image = models.ImageField(upload_to='images/cars/%Y-%m-%d/', verbose_name='Фото')
+    image = models.ImageField(upload_to='images/cars/%Y-%m-%d/', verbose_name='Загрузить Фото')
     dateCreation = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания' )
     dateUpdate = models.DateTimeField(auto_now=True, verbose_name='Дата изменения', null=True )
     city = models.ForeignKey(CityPark, on_delete=models.SET_NULL, verbose_name='Город', null=True)
@@ -81,10 +81,11 @@ class ParkManager(models.Model):
     lastName = models.CharField(max_length=40, verbose_name='Фамилия')
     phone_number = PhoneNumberField(unique=True, null=False, blank=False, verbose_name='Телефон')
     email = models.EmailField(verbose_name='Почта')
-    dateCreation = models.DateTimeField(auto_now_add=True)
+    dateCreation = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     dateUpdate = models.DateTimeField(auto_now=True, verbose_name='Дата изменения', null=True )
     city = models.ForeignKey(CityPark, on_delete=models.SET_NULL, verbose_name='Город', null=True)
     position = models.CharField(max_length=200, verbose_name='Должность')
+    image = models.ImageField(upload_to='images/managers/%Y-%m-%d/', verbose_name='Загрузить Фото', null=True, blank=True)
     
     
     class Meta:
@@ -109,7 +110,7 @@ class CarPark(models.Model):
         verbose_name = 'Таксопарк автомобилей'
         
     def __str__(self):
-        return f'г. {self.city} таксопарк - {self.name}'
+        return f'г. {self.city}, таксопарк - {self.name}'
     
 class FeedbackVideo(models.Model):
     city = models.ForeignKey(CityPark, on_delete=models.CASCADE, verbose_name='Город')
@@ -131,8 +132,14 @@ class TaxiCarMany(models.Model):
     carParkThrough = models.ForeignKey(CarPark, on_delete=models.CASCADE)
     taxiCarThrough = models.ForeignKey(TaxiCar, on_delete=models.CASCADE, verbose_name="автомобили таксопарка") 
     
+    def __str__(self):
+        return ''
+    
 class DriverMany(models.Model):
     taxiCarThrough = models.ForeignKey(TaxiCar, on_delete=models.CASCADE)
     driverThrough = models.ForeignKey(Driver, on_delete=models.CASCADE, verbose_name="автомобиль арендовали")
+    
+    def __str__(self):
+        return ''
     
     
