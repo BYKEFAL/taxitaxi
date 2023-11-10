@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_cleanup.apps.CleanupConfig',
     'phonenumber_field',
     'embed_video',
+    'rest_framework',
 ]
 
 # GEOIP_PATH = 'geo/'
