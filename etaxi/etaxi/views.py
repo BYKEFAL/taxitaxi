@@ -3,7 +3,7 @@ from django.template.response import TemplateResponse
 import requests
 import json
 from ipware import get_client_ip
-# from django.contrib.gis.geoip2 import GeoIP2
+from django.contrib.gis.geoip2 import GeoIP2
 from dadata import Dadata
 
 # Определение города на Русском по IP
@@ -48,20 +48,22 @@ def home(request):
    
 '''
 
-'''
-Определение города через Geoip2
-def home(request):
-   client_ip, is_routable = get_client_ip(request)
-   if client_ip is not None:
-    g = GeoIP2()
-    try:
-        location = g.city(client_ip)['city']
-    except:
-        location = {'Локация': 'нет данных'}
+
+# Определение города через Geoip2
+# def home(request):
+# #    client_ip, is_routable = get_client_ip(request)
+# #    client_ip = '176.59.144.81' #Новосибирск
+#    client_ip = '84.17.51.52'
+#    if client_ip is not None:
+#     g = GeoIP2()
+#     try:
+#         location = g.city(client_ip)['city']
+#     except:
+#         location = {'Локация': 'нет данных'}
    
-   print(client_ip)
-   return HttpResponse(f'WELCOME {client_ip} {location}')
-'''
+#    print(client_ip)
+#    return HttpResponse(f'WELCOME {client_ip} {location}')
+
 
 
 

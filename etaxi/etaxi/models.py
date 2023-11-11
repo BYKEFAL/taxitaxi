@@ -26,9 +26,9 @@ class CityPark(models.Model):
         
 class Driver(models.Model):
     name = models.CharField(verbose_name='Водитель', max_length=40, blank=False, null=False)
-    phone_number = PhoneNumberField(unique=True, null=False, blank=False)
+    phone_number = PhoneNumberField(verbose_name='Телефон',unique=True, null=False, blank=False)
     dateCreation = models.DateTimeField(auto_now_add=True)
-    city = models.ForeignKey(CityPark, on_delete=models.CASCADE)
+    city = models.ForeignKey(CityPark, on_delete=models.CASCADE, verbose_name='Город',)
     
     class Meta:
         verbose_name_plural = "Водители"

@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
-# GEOIP_PATH = 'geo/'
+GEOIP_PATH = 'geo/'
 PHONENUMBER_DEFAULT_REGION = "RU"
 
 SITE_ID = 1

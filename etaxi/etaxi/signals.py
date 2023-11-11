@@ -14,8 +14,8 @@ class DriverSerializer(serializers.ModelSerializer):
 
 @receiver(post_save, sender=Driver)
 def add_driver_to_bitrix(sender, instance, created, **kwargs):
-    # вебхук
-    bx24 = Bitrix24('https://example.bitrix24.com/rest/1/33olqeits4avuyqu') 
+    # вставьте свой вебхук
+    bx24 = Bitrix24('https://b24-4sb7sd.bitrix24.ru/rest/1/n66mcst4qnuq9yl6/') 
     # Если водитель нажал форму отправить, то автоматом добавился в базу, и залетел в битрих24
     if created:
        serializer = DriverSerializer(instance)
@@ -24,17 +24,22 @@ def add_driver_to_bitrix(sender, instance, created, **kwargs):
           driver_bitrix = serializer.data
           try:
              response = bx24.callMethod('crm.lead.add', fields={
-                  'TITLE': 'Сайт ETAXI заявка',
+                  'TITLE': 'Новый лид от сайта ETAXI',
                   'NAME': driver_bitrix['name'],
-                  'SOURCE_ID': driver_bitrix['id'],
-                  'ADDRESS_CITY': driver_city,
+                  'LAST_NAME': driver_bitrix['name'] + ' ETAXI',
+                  'COMPANY_TITLE': driver_bitrix['name'] + f' из города {driver_city}',
+                  'SOURCE_ID': 'WEB',
+                  'SOURCE_DESCRIPTION': 'Сюда можно добавить какое-нибудь описание',
+                  'STATUS_ID': 'NEW',
+                  'POST': 'Клиент Etaxi',
+                  'ADDRESS_CITY': f'город {driver_city}',
+                  'OPENED': 'Y',
                   'PHONE': [{'VALUE': driver_bitrix['phone_number'], 'VALUE_TYPE': 'WORK'}],
-                  
+                  'WEB': [{'VALUE': 'https://вашдоменсайта.ru', 'VALUE_TYPE': 'OTHER'}],
+                  'ORIGIN_ID': driver_bitrix['id'],
                })
           except BitrixError as message:
               print(message)
-          return Response(response.json())
-    return Response(serializer.errors, status=400)
  
 # some local tests
 # class Driver:
