@@ -64,6 +64,9 @@ def home(request):
 #    print(client_ip)
 #    return HttpResponse(f'WELCOME {client_ip} {location}')
 
+#создание карты на сайте
+
+
 
 
 

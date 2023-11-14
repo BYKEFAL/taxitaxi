@@ -53,7 +53,10 @@ def add_driver_to_bitrix(sender, instance, created, **kwargs):
 #    serializer = DriverSerializer(model)
 #    driver_bitrix = serializer.data
 #    print(driver_bitrix, city)
-   
-   
+
+# def getlead(pk):
+#    bx24 = Bitrix24('https://b24-4sb7sd.bitrix24.ru/rest/1/n66mcst4qnuq9yl6/')
+#    response = bx24.callMethod('crm.lead.get', id=pk)
+#    return response
    
          
