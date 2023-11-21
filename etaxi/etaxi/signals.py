@@ -9,7 +9,7 @@ from bitrix24 import *
 class DriverSerializer(serializers.ModelSerializer):
     class Meta:
         model = Driver
-        fields = ['id', 'name', 'phone_number']
+        fields = ['id', 'name', 'phone_number', 'question']
 
 
 # @receiver(post_save, sender=Driver)
@@ -29,7 +29,7 @@ class DriverSerializer(serializers.ModelSerializer):
 #                   'LAST_NAME': driver_bitrix['name'] + ' ETAXI',
 #                   'COMPANY_TITLE': driver_bitrix['name'] + f' из города {driver_city}',
 #                   'SOURCE_ID': 'WEB',
-#                   'SOURCE_DESCRIPTION': 'Сюда можно добавить какое-нибудь описание',
+#                   'SOURCE_DESCRIPTION': 'Вопрос клиента - ' + driver_bitrix['question'],
 #                   'STATUS_ID': 'NEW',
 #                   'POST': 'Клиент Etaxi',
 #                   'ADDRESS_CITY': f'город {driver_city}',
@@ -58,5 +58,17 @@ class DriverSerializer(serializers.ModelSerializer):
 #    bx24 = Bitrix24('https://b24-4sb7sd.bitrix24.ru/rest/1/n66mcst4qnuq9yl6/')
 #    response = bx24.callMethod('crm.lead.get', id=pk)
 #    return response
+
+# заготовочка для другого места.
+# <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+# <script>
+# $(document).ready(function(){
+#     setTimeout(function(){
+#        location.reload(true);
+#        alert("The page will now refresh");
+#     }, 60000);  
+# });
+# </script>
+
    
          

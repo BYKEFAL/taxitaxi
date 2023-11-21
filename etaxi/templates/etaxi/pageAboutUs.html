@@ -173,30 +173,32 @@ Etaxi About
       <p class="question-inner__text">Отправьте нам свой вопрос и получите <br> бесплатную консультацию</p>
       
       <div class="form__container">
-        <form action="" class="form">
-
+        
+        <form action="" class="form" method="POST">
+          {% csrf_token %}
           <div class="form__group">
-            <input type="text" class="form__input" placeholder="Ваше имя">
-            <label for="" class="form__label" ></label>
+            {{formquest.name}}
+            <div class="form-error">{{formquest.name.errors}}</div>
           </div>
 
           <div class="form__group">
-            <input type="tel" class="form__input" placeholder="Ваш телефон">
-            <label for="" class="form__label"></label>
+            {{formquest.phone_number}}
+            <div class="form-error">{{formquest.phone_number.errors}}</div>
           </div>
         
           <div class="form__group-big">
-            <textarea class="form__input-big" placeholder="Ваш вопрос"></textarea>
-            <label for="" class="form__label"></label>
+            {{formquest.question}}
+            <div class="form-error">{{formquest.question.errors}}</div>
           </div>
 
           <button class="form__button" type="submit">Отправить</button>
 
           <div class="checkbox">
-            <input class="custom-checkbox" type="checkbox" id="question" name="question"/>
+            {{formquest.confirmation}}
             <label class="application-checkbox" for="question">Подтверждаю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</label>
-        </div>
+          </div>
         </form>
+
       </div>
     </div>
     <img class="question__img" src="{%static 'img/question-img.jpg'%}" alt="questionImg">

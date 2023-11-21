@@ -6,101 +6,65 @@
 Etaxi Contacts
 {% endblock title %}
 
+
+{%block changeCityContact%}
+{%if novalid%}
+<script defer src="{%static 'js/applicationApp.js'%}"></script>
+<form class="application-form" style="display: flex; margin-bottom: 10vh; top:35%;" action="" method="POST" id="reg-form">
+{%else%}
+<form class="application-form" action="" method="POST" id="reg-form">
+{%endif%}
+   {% csrf_token %}
+   <figure class="application-close">
+       <img src="{%static 'img/close-form.svg'%}">
+   </figure>
+   <h2 class="application-subtitle">Оставите заявку</h2>
+   <h3 class="application-text">Первый день аренды авто бесплатно!</h3>
+   {{ form.name }}
+   <div class="form-error">{{ form.name.errors }}</div>
+   {{ form.phone_number }}
+   <div class="form-error">{{ form.phone_number.errors }}</div>
+
+   <div style="display: none;">{{ form.city }}
+        <div class="form-error">{{ form.city.errors }}</div>
+   </div>
+   <button class="button application-button" type="submit">Оставить заявку</button>
+   <div class="application-checkbox">
+   {{form.confirmation}}
+   <label class="application-checkbox" for="confirmation">Подтверждаю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</label>
+   </div>
+</form>
+
+<div class="popUp">
+   <figure class="application-close popUp-close">
+       <img src="{%static 'img/close-form.svg'%}">
+   </figure>
+   <h4 class="popUp-title">Выберите город</h4>
+   <div class="popUp-search-city">
+       <input class="popUp-city" placeholder="Ваш город">
+       <figure class="popUp-img-city">
+           <img src="{%static 'img/search.svg'%}" alt="search">
+       </figure>
+       <div class="popUp-list">
+           {%for city in cities%}
+           <a class="popUp__item" href="{% url 'etaxi:contacts' city.name %}">{{city}}</a>
+           {%endfor%}
+       </div>
+   </div>
+</div>
+
+{%endblock changeCityContact%}
+
 {% block page %}
-      <div class="container">
-        <section class="main-contacts__section" id="contacts">
-          <div class="main__title-select">
-            <h3 class="main__title">Контакты в Иркутске</h3>
-            <span class="header-cityAbout">Иркутск</span>
-            <figure class="header-expandMoreAbout">
-                <img src="{%static 'img/expand_more.svg'%}" alt="expand_more">
-            </figure>
-          </div>
-          <div class="main__map">
-            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A4b8508d7139b2b61ed46cca9745440083eb5f0d9aa895c218d5b868aa1f1984a&amp;source=constructor" 
-                    width="1200" 
-                    height="400" 
-                    frameborder="0">
-            </iframe>
-          </div>
 
-          <div class="main__contacts">
-            <div class="main__contacts-item">
-              <div class="district">Университетский м-н <br> Свердловский район </div>
-              <div class="main__contacts-address">
-                <div class="street">
-                  ​Университетский микрорайон, 2
-                </div>
-                <div class="opening-hours">
-                  Пн-Пт с 9:00 до 18:00 <br>
-                  Сб-Вс с 10:00 до 14:00  
-                </div>
-                <a class="howCanIgetTo" href="#">Как проехать</a>
-              </div>
-              <a class="main__contacts-phone" href="tel:+73952503775">+7 (3952) 50‒37‒75</a>
-            </div>
-            <div class="main__contacts-item">
-              <div class="district">микрорайон Энергетиков<br> Свердловский район  </div>
-              <div class="main__contacts-address">
-                <div class="street">
-                  ​Старо-Кузьмихинская, 71/1
-                </div>
-                <div class="opening-hours">
-                  Пн-Пт с 9:00 до 18:00 <br>
-                  Сб-Вс с 10:00 до 14:00
-                </div>
-                <a class="howCanIgetTo" href="#">Как проехать</a>
-              </div>
-              <a class="main__contacts-phone" href="tel:+73952503775">+7 (3952) 50‒37‒75</a>
-            </div>
-            <div class="main__contacts-item">
-              <div class="district">Октябрьский район </div>
-              <div class="main__contacts-address">
-                <div class="street">
-                  ​Александра Невского (2​ цокольный этаж)
-                </div>
-                <div class="opening-hours">
-                  Пн-Пт с 9:00 до 18:00<br>
-                  Сб-Вс с 10:00 до 14:00
-                </div>
-                <a class="howCanIgetTo" href="#">Как проехать</a>
-              </div>
-              <div class="contacts-phones">
-                <a class="main__contacts-phone" href="tel:+73952503775">+7 (3952) 50‒37‒75</a> 
-                <a class="main__contacts-phone" href="tel:+73952716289">+7 (3952) 71‒62‒89</a>
-              </div>
-            </div>
-            <div class="main__contacts-item">
-              <div class="district">Ленинский район </div>
-              <div class="main__contacts-address">
-                <div class="street">
-                  ​БЦ Шоколад, ​Улица Трактовая, 18/1а​2-7 офис (2 этаж)
-                </div>
-                <div class="opening-hours">
-                  Пн-Пт с 9:00 до 18:00<br>Сб-Вс с 10:00 до 14:00
-                </div>
-                <a class="howCanIgetTo" href="#">Как проехать</a>
-              </div>
-              <a class="main__contacts-phone" href="tel:+73952503775">+7 (3952) 50‒37‒75</a>
-            </div>
-            <div class="main__contacts-item">
-              <div class="district">Куйбышевский район </div>
-              <div class="main__contacts-address">
-                <div class="street">
-                  ​ТЦ Терминал, ​Улица Баррикад, 60д​10 офис (2 этаж)
-                </div>
-                <div class="opening-hours">
-                  Пн-Пт с 9:00 до 18:00<br>Сб-Вс с 10:00 до 14:00
-                </div>
-                <a class="howCanIgetTo" href="#">Как проехать</a>
-              </div>
-              <a class="main__contacts-phone" href="tel:+73952503775">+7 (3952) 50‒37‒75</a>
-            </div>
-          </div>
-        </section>
-      </div>
-  {% endblock page %}
+{%if citygeo.name == 'Иркутск' %}
+    {% include 'maps_contacts/pageContactsIrkutsk.html' %}
+{%elif citygeo.name == 'Екатеринбург'%}
+    {% include 'maps_contacts/pageContactsEkaterinburg.html' %} 
+{%endif%}
 
-  {% block script %}
+{% endblock page %}
+
+{% block script %}
   <script src="{%static 'js/appContacts.js'%}"></script>
-  {% endblock script %}
+{% endblock script %}

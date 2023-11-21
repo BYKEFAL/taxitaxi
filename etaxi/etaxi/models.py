@@ -29,8 +29,8 @@ class Driver(models.Model):
     name = models.CharField(validators=[DriverNameValidator], verbose_name='Водитель', max_length=40, blank=False, null=False)
     phone_number = PhoneNumberField(verbose_name='Телефон', unique=True, null=False, blank=False)
     dateCreation = models.DateTimeField(auto_now_add=True)
-    city = models.ForeignKey(CityPark, on_delete=models.CASCADE, verbose_name='Город',)
-    confirmation = models.BooleanField(verbose_name='Соглашение на обработку получено')
+    city = models.ForeignKey(CityPark, on_delete=models.CASCADE, verbose_name='Город', blank=True, null=True,)
+    confirmation = models.BooleanField(verbose_name='Соглашение на обработку получено', default=True)
     question = models.TextField(max_length=500, blank=True, null=True, verbose_name='Вопрос клиента' )
     
     class Meta:

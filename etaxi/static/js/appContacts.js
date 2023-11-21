@@ -1,10 +1,10 @@
-/*Кастомный селект*/
-const element = document.querySelector(".main-select");
-const choices = new Choices(element, {
-    searchEnabled: false,
-    itemSelectText: "",
-    noResultsText: 'По Вашему запросу ничего не найдено',
-})
+// /*Кастомный селект*/
+// const element = document.querySelector(".main-select");
+// const choices = new Choices(element, {
+//     searchEnabled: false,
+//     itemSelectText: "",
+//     noResultsText: 'По Вашему запросу ничего не найдено',
+// })
 
 /*Show-hidden mainForm*/
 const showButtonHeader = document.querySelector(".header-nav__button");
@@ -54,11 +54,11 @@ function closeSlectCity() {
   actualCity.style.display = "none";
 }
 
-const showExpandAbout = document.querySelector(".header-cityAbout");
-const showCityAbout = document.querySelector(".header-expandMoreAbout");
+// const showExpandAbout = document.querySelector(".header-cityAbout");
+// const showCityAbout = document.querySelector(".header-expandMoreAbout");
 
-showExpandAbout.addEventListener("click",showPopUp)
-showCityAbout.addEventListener("click",showPopUp)
+// showExpandAbout.addEventListener("click",showPopUp)
+// showCityAbout.addEventListener("click",showPopUp)
 
 /*Show-hidden popUp*/
 const popUp = document.querySelector(".popUp");

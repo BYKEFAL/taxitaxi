@@ -6,40 +6,81 @@ from ipware import get_client_ip
 from django.contrib.gis.geoip2 import GeoIP2
 from dadata import Dadata
 from .models import *
-from .forms import DriverAddForm
+from .forms import DriverAddForm, DriverAddFormOffer, DriverAddFormQuest
 
 # Определение города на Русском по IP
 token = "d1b7f800e7beb52dbc7b32f8f140808fe8e7bfaa"
 dadata = Dadata(token)
 
-def home(request):
-    # client_ip, is_routable = get_client_ip(request)
-    # client_ip = '176.59.144.81' #Тестовый IP не забыть удалить
-    # # response = dadata.iplocate(client_ip)['data']['city']
-    # response = 'ответ от АПИ'
-    # print(client_ip)
-    # print(response)
-    # header = 'Тест кнопки'
-    # feedback = FeedbackVideo.objects.get(pk=1)
-    # data = {'ip': client_ip, 'city': response, 'header': header, 'feedback': feedback, }
+# def geo(request):
+#     client_ip, is_routable = get_client_ip(request)
+#     client_ip = '176.59.144.81' #Тестовый IP не забыть удалить
+#     response = dadata.iplocate(client_ip)['data']['city']
+#     return response
+    
+    
+def home(request, city='Иркутск'):
+    
+    # geos = geo(request)
+    # print(geos)
+    
     cities = CityPark.objects.all()
+    citygeo = CityPark.objects.get(name=city)
     
     novalid = None
     if request.method == "POST":
         form = DriverAddForm(request.POST)
+        formoffer = DriverAddFormOffer(request.POST)
         if form.is_valid():
             form.save()
             form = DriverAddForm()
             return redirect('/')
+        elif formoffer.is_valid():
+            formoffer.save()
+            formoffer = DriverAddFormOffer()
+            return redirect('/')
+        else:
+            novalid = True
+            
+    else:
+        form = DriverAddForm()
+        formoffer = DriverAddFormOffer()
+        
+    context = {'cities': cities, 'form': form, 
+               'formoffer': formoffer, 'novalid': novalid, 'citygeo': citygeo}
+   
+    return render(request, 'index.html', context)
+
+
+
+def about(request, city):
+    cities = CityPark.objects.all()
+    citygeo = CityPark.objects.get(name=city)
+    
+    novalid = None
+    if request.method == "POST":
+        form = DriverAddForm(request.POST)
+        formquest = DriverAddFormQuest(request.POST)
+        if formquest.is_valid():
+            formquest.save()
+            formquest = DriverAddFormQuest()
+            return redirect(request.META.get('HTTP_REFERER'))
+        elif form.is_valid():
+            form.save()
+            form = DriverAddForm()
+            return redirect(request.META.get('HTTP_REFERER')) 
         else:
             novalid = True
     else:
         form = DriverAddForm()
-        
-    context = {'cities': cities, 'form': form, 'novalid': novalid}
-    return render(request, 'index.html', context)
+        formquest = DriverAddFormQuest()
+    context = {'form': form, 'novalid': novalid, 'formquest': formquest, 'cities': cities, 'citygeo': citygeo}
+    return render(request, 'etaxi/pageAboutUs.html', context)
 
-def contacts(request):
+def contacts(request, city):
+    cities = CityPark.objects.all()
+    citygeo = CityPark.objects.get(name=city)
+    
     novalid = None
     if request.method == "POST":
         form = DriverAddForm(request.POST)
@@ -53,26 +94,10 @@ def contacts(request):
     else:
         form = DriverAddForm()
         
-    context = {'form': form, 'novalid': novalid}
-    return render(request, 'etaxi/pageContacts.html', context)
-
-def about(request):
-    novalid = None
-    if request.method == "POST":
-        form = DriverAddForm(request.POST)
-        if form.is_valid():
-            form.save()
-            form = DriverAddForm()
-            return redirect(request.META.get('HTTP_REFERER'))
-            # return redirect('/about')
-        else:
-            novalid = True
-    else:
-        form = DriverAddForm()
-        
-    context = {'form': form, 'novalid': novalid}
-    return render(request, 'etaxi/pageAboutUs.html', context)
-
+    context = {'form': form, 'novalid': novalid, 'cities': cities, 'citygeo': citygeo}
+    return render(request, 'etaxi/pageContacts.html', context)    
+    
+    
 '''
 Получение ip клиента через х-форвардед-фор, с последующим получением данных о Геолокации чере стороннее API Abstract
 

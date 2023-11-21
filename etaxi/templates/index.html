@@ -20,10 +20,12 @@
     <!------------- endblock header -------------->
     
     <main id="main-section">
-
-       <!------------- block frompopup -------------->
-       {% include './includes/form_popup.html' %}
-       <!------------- endblock formpopup -------------->
+        
+       {%block changeCityContact%}
+            <!------------- block frompopup -------------->
+            {% include './includes/form_popup.html' %}
+            <!------------- endblock formpopup -------------->
+       {%endblock changeCityContact%}
 
        {%block page%}
         <div class="main-block">
@@ -95,10 +97,13 @@
         {% endblock page %}
     </main>
 
+    <!------------- block footer -------------->
     {% include './includes/footer.html' %}
+     <!------------- endblock footer -------------->
 
     <!------------ Scripts ---------------->
     <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
+    
     {%block script%}
     <script src="{%static 'js/app.js'%}"></script>
     <script src="{%static 'js/videoSlider.js'%}"></script>

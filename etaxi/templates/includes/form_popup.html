@@ -16,12 +16,14 @@
    <div class="form-error">{{ form.name.errors }}</div>
    {{ form.phone_number }}
    <div class="form-error">{{ form.phone_number.errors }}</div>
-   {{ form.city }}
-   <div class="form-error">{{ form.city.errors }}</div>
+
+   <div style="display: none;">{{ form.city }}
+        <div class="form-error">{{ form.city.errors }}</div>
+   </div>
    <button class="button application-button" type="submit">Оставить заявку</button>
    <div class="application-checkbox">
    {{form.confirmation}}
-    <label class="application-checkbox" for="confirmation">Подтверждаю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</label>
+   <label class="application-checkbox" for="confirmation">Подтверждаю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</label>
    </div>
 </form>
 
@@ -31,22 +33,14 @@
    </figure>
    <h4 class="popUp-title">Выберите город</h4>
    <div class="popUp-search-city">
-       <input class="popUp-city" placeholder="Ваш город"></input>
+       <input class="popUp-city" placeholder="Ваш город">
        <figure class="popUp-img-city">
            <img src="{%static 'img/search.svg'%}" alt="search">
        </figure>
        <div class="popUp-list">
-           <div class="popUp__item">Иркутск</div>
-           <div class="popUp__item">Барнаул</div>
-           <div class="popUp__item">Екатеринбург</div>
-           <div class="popUp__item">Кемерово</div>
-           <div class="popUp__item">Красноярск</div>
-           <div class="popUp__item">Новосибирск</div>
-           <div class="popUp__item">Новокузнецк</div>
-           <div class="popUp__item">Омск</div>
-           <div class="popUp__item">Томск</div>
-           <div class="popUp__item">Тюмень</div>
-           <div class="popUp__item">Улан-Удэ</div>
+           {%for city in cities%}
+           <a class="popUp__item" href="{% url 'etaxi:homecity' city.name %}">{{city}}</a>
+           {%endfor%}
        </div>
    </div>
 </div>

@@ -22,7 +22,7 @@
                    <figure class="header-geo">
                        <img src="{%static 'img/location-header.svg'%}" alt="location">
                    </figure>
-                   <span class="header-city">Иркутск</span>
+                   <span class="header-city">{{citygeo}}</span>
                    <figure class="header-expandMore">
                        <img src="{%static 'img/expand_more.svg'%}" alt="expand_more">
                    </figure>
@@ -38,11 +38,12 @@
                <div class="header-bottom">
                    <nav class="header-nav">
                        <ul class="header-nav-list">
-                           <li class="header-nav__item"><a class="header-nav__link" href="/#catalog">Каталог</a></li>
-                           <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:about'%}">О нас</a></li>
-                           <li class="header-nav__item"><a class="header-nav__link" href="/#rent">Условия аренды</a></li>
-                           <li class="header-nav__item"><a class="header-nav__link" href="/#reviews">Отзывы</a></li>
-                           <li class="header-nav__item"><a class="header-nav__link" href="/#contacts">Контакты</a></li>
+                           <!-- <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:home'}">Главная</a></li>     -->
+                           <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#catalog">Каталог</a></li>
+                           <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:about' citygeo.name%}">О нас</a></li>
+                           <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#rent">Условия аренды</a></li>
+                           <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#reviews">Отзывы</a></li>
+                           <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#contacts">Контакты</a></li>
                        </ul>
                    </nav>
                    <button class="button header-nav__button">Оставить заявку</button>

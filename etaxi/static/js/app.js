@@ -1,10 +1,10 @@
 /*Кастомный селект*/
-const element = document.querySelector(".main-select");
-const choices = new Choices(element, {
-    searchEnabled: false,
-    itemSelectText: "",
-    noResultsText: 'По Вашему запросу ничего не найдено',
-})
+// const element = document.querySelector(".main-select");
+// const choices = new Choices(element, {
+//     searchEnabled: false,
+//     itemSelectText: "",
+//     noResultsText: 'По Вашему запросу ничего не найдено',
+// })
 
 
 /*Show-hidden mainForm*/

@@ -7,15 +7,19 @@
    <div class="offer-item">
        <h2 class="offer-title title">Первый день аренды</h2>
        <h2 class="offer-title offer-title-free title">Бесплатно*</h2>
-       <form class="offer-form" action="#" method="POST">
-           <input class="offer-form__name" type="text" name="name" value="" placeholder="Ваше имя" required>
-           <input class="offer-form__number"  type="text" name="number" value="" placeholder="+7 (999) 999-99-99" required>
-           <button class="button offer__button">Арендовать машину</button>
-           <div class="offer-form__checkbox">
-               <input class="custom-checkbox" type="checkbox" id="verification" name="verification"/>
-               <label for="verification">Подтверждаю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</label>
-           </div>
-       </form>
+
+       <form class="offer-form" action="" method="POST">
+        {% csrf_token %}
+        {{ formoffer.name }}
+        <div class="form-error">{{ formoffer.name.errors }}</div>
+        {{ formoffer.phone_number }}
+        <div class="form-error">{{ formoffer.phone_number.errors }}</div>
+        <button class="button offer__button" type="submit">Арендовать машину</button>
+        <div class="offer-form__checkbox">
+        {{formoffer.confirmation}}
+        <label for="verification">Подтверждаю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</label>
+        </div>
+        </form>
        <h3 class="offer-text">* В отдельных случаях компания оставляет за собой право не применять настоящее условие. Подробности уточняйте у сотрудников компании.</h3>
    </div>
 </section>

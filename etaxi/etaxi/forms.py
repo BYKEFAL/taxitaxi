@@ -7,22 +7,42 @@ from phonenumber_field.formfields import *
 
 class DriverAddForm(ModelForm):
    
-    confirmation = forms.BooleanField(required=True, initial=True, widget=forms.CheckboxInput(attrs={'class': 'custom-checkbox', 'id':'confirmation'},))
-   
+    confirmation = forms.BooleanField(initial=True, widget=forms.CheckboxInput(attrs={'class': 'custom-checkbox', 'id': 'confirmation'}))
     class Meta:
         model = Driver
-        fields = '__all__'
+        fields = ['name', 'phone_number','city','confirmation']
         
         widgets = {
             'name': forms.TextInput(attrs={'class': 'application-input', 'placeholder':"Ваше имя",}),
             'phone_number': RegionalPhoneNumberWidget(attrs={'class':"application-input", 'placeholder':"+7 (999) 999-99-99"}),
-            'city': forms.Select(attrs={'class': 'main-select', }),
+            'city': forms.Select(attrs={'class': 'main-select', }), 
         }
-        
+       
     def __init__(self, *args, **kwargs):
          super(DriverAddForm, self).__init__(*args, **kwargs)
-         self.fields['city'].empty_label = "Выберите город"
-        
+         self.fields['city'].empty_label = 'Выберите город'
+         
+class DriverAddFormOffer(ModelForm):
    
+    confirmation = forms.BooleanField(initial=True, widget=forms.CheckboxInput(attrs={'class': 'custom-checkbox', 'id': 'verification'}))
+    class Meta:
+        model = Driver
+        fields = ['name', 'phone_number', 'confirmation',]
         
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'offer-form__name', 'placeholder':"Ваше имя",}),
+            'phone_number': RegionalPhoneNumberWidget(attrs={'class':"offer-form__number", 'placeholder':"+7 (999) 999-99-99"}),
+        }
         
+class DriverAddFormQuest(ModelForm):
+   
+    confirmation = forms.BooleanField(initial=True, widget=forms.CheckboxInput(attrs={'class': 'custom-checkbox', 'id': 'question'}))
+    class Meta:
+        model = Driver
+        fields = ['name', 'phone_number', 'confirmation', 'question',]
+        
+        widgets = {
+            'name': forms.TextInput(attrs={'class':"form__input", 'placeholder':"Ваше имя",}),
+            'phone_number': RegionalPhoneNumberWidget(attrs={'class':"form__input", 'placeholder':"+7 (999) 999-99-99"}),
+            'question': forms.Textarea(attrs={'class':'form__input-big', 'placeholder':"Ваш вопрос"}),
+        }

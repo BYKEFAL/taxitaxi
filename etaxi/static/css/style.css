@@ -1214,7 +1214,7 @@ iframe {
     display: none;
     position: fixed;
     z-index: 4;
-    top:50%;
+    top:40%;
     left: 50%;
     margin-top: -242px;
     margin-left: -150px;
@@ -1460,6 +1460,7 @@ iframe {
     margin-bottom: 2%;
     word-break: break-all;
 }
+
 
   
 
