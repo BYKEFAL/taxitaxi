@@ -1,6 +1,7 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from embed_video.fields import EmbedVideoField
+from .validators import DriverNameValidator
 
 # Create your models here.
 class City(models.Model):
@@ -25,10 +26,12 @@ class CityPark(models.Model):
         ordering = ['name']
         
 class Driver(models.Model):
-    name = models.CharField(verbose_name='Водитель', max_length=40, blank=False, null=False)
-    phone_number = PhoneNumberField(verbose_name='Телефон',unique=True, null=False, blank=False)
+    name = models.CharField(validators=[DriverNameValidator], verbose_name='Водитель', max_length=40, blank=False, null=False)
+    phone_number = PhoneNumberField(verbose_name='Телефон', unique=True, null=False, blank=False)
     dateCreation = models.DateTimeField(auto_now_add=True)
     city = models.ForeignKey(CityPark, on_delete=models.CASCADE, verbose_name='Город',)
+    confirmation = models.BooleanField(verbose_name='Соглашение на обработку получено')
+    question = models.TextField(max_length=500, blank=True, null=True, verbose_name='Вопрос клиента' )
     
     class Meta:
         verbose_name_plural = "Водители"
@@ -113,9 +116,9 @@ class CarPark(models.Model):
         return f'г. {self.city}, таксопарк - {self.name}'
     
 class FeedbackVideo(models.Model):
-    city = models.ForeignKey(CityPark, on_delete=models.CASCADE, verbose_name='Город')
+    city = models.ForeignKey(CityPark, on_delete=models.CASCADE, verbose_name='Город', null=False)
     name = models.CharField(verbose_name='Название видео', max_length=50, blank=False, null=False)
-    video = models.FileField(upload_to='video/feedback/%Y-%m-%d/', verbose_name='Видеофайл')
+    video = models.FileField(upload_to='video/feedback/%Y-%m-%d/', verbose_name='Видеофайл',blank=True, null=True,)
     youtube = EmbedVideoField(blank=True, null=True, verbose_name='Youtube ссылка')
     dateCreation = models.DateTimeField(auto_now_add=True)
     dateUpdate = models.DateTimeField(auto_now=True, verbose_name='Дата изменения', null=True )
@@ -133,13 +136,13 @@ class TaxiCarMany(models.Model):
     taxiCarThrough = models.ForeignKey(TaxiCar, on_delete=models.CASCADE, verbose_name="автомобили таксопарка") 
     
     def __str__(self):
-        return ''
+        return ' '
     
 class DriverMany(models.Model):
     taxiCarThrough = models.ForeignKey(TaxiCar, on_delete=models.CASCADE)
     driverThrough = models.ForeignKey(Driver, on_delete=models.CASCADE, verbose_name="автомобиль арендовали")
     
     def __str__(self):
-        return ''
+        return ' '
     
     

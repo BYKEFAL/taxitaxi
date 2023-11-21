@@ -1,0 +1,214 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block title %}
+Etaxi About
+{% endblock title %}
+
+{% block styleAbout %}
+<link rel="stylesheet" href="{% static 'css/styleAboutUs.css'%}">
+{% endblock styleAbout %}
+
+{% block page %}
+  <div class="container">
+    <section class="aboutUs">
+        <h3 class="main__title">О нас</h3>
+        <div class="main__video-slogan">
+          <video class="video-aboutUs" width="611" height="415" controls="controls">
+            <source src="{%static 'video/presentation rev2.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+         </video>
+         <figure class="btn-play">
+            <img src="{%static 'img/btn-play.svg'%}" alt="btn-play">
+         </figure>
+         <div class="slogan">
+          <div class="slogan__container">
+            <div class="slogan__container-title">
+              <img src="{%static 'img/begin.svg'%}" alt="begin">
+              <h2>Первоочередная задача <br>нашего парка-</h2>
+            </div>
+            <h2 class="slogan__container-title-yellow">это повышение дохода водителя</h2>
+            <div class="slogan__container-text">
+              <h3></h3>
+              <p>Мы не просто даём вам авто в аренду, а мы обучаем, показываем и сопровождаем вас на протяжении всего сотрудничества</p>
+              <img src="{%static 'img/end.svg'%}" alt="end">
+            </div>
+          </div>
+         </div>
+        </div>
+    </section>
+    <section class="ourTeam">
+      <h3 class="ourTeam__title">Наша команда</h3>
+      <div class="section2">
+        <div class="section2__inner">
+          <div class="section2__top">
+            <div class="section2__container">
+              <div class="slider-wrapper">
+                <div class="slider-line">
+
+                  <div class="card">
+                    <div class="card__container">
+                      <img class="card__img" src="{%static 'img/bruchovskih.jpg'%}" alt="man">
+                      <h2>Брюховских <br>
+                       Владислав</h2>
+                      <p>Операционный директор сети Ё-такси</p>
+                      <p class="card__img-text">Мы - современный, иновационный таксопарк! Наша задача - создать для водителя комфортные условия для стабильного заработка! Мы ждём тебя в нашей команде, коллега!</p>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card__container">
+                     <img class="card__img" src="{%static 'img/zlobin.jpg'%}" alt="man">
+                      <h2>Злобин <br>Валентин Андреевич</h2>
+                     <p>Руководитель макрорегиона: Восточный</p>
+                     <p class="card__img-text">Наша задача сделать так, чтобы клиенту было во всём удобно, и не важно, насколько это сложно бизнесу</p>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card__container">
+                      <img class="card__img" src="{%static 'img/dunbinskiy.jpg'%}" alt="man">
+                      <h2>Дунбинский <br> 
+                       Сергей Валерьевич </h2>
+                      <p>Директор Краснояского филиала Ё-такси</p>
+                      <p class="card__img-text">Рынок такси активно развивается и мы развиваемся вместе с ним, ставя перед собой амбициозные цели</p>
+                    </div>
+                  </div>
+
+                  <div class="card">
+                    <div class="card__container">
+                      <img class="card__img" src="{%static 'img/bruchovskih.jpg'%}" alt="man">
+                      <h2>Брюховских <br>
+                       Владислав</h2>
+                      <p>Операционный директор сети Ё-такси</p>
+                      <p class="card__img-text">Мы - современный, иновационный таксопарк! Наша задача - создать для водителя комфортные условия для стабильного заработка! Мы ждём тебя в нашей команде, коллега!</p>
+                    </div>
+                  </div>
+                  
+                  <div class="card">
+                    <div class="card__container">
+                     <img class="card__img" src="{%static 'img/zlobin.jpg'%}" alt="man">
+                      <h2>Злобин <br>Валентин Андреевич</h2>
+                     <p>Руководитель макрорегиона: Восточный</p>
+                     <p class="card__img-text">Наша задача сделать так, чтобы клиенту было во всём удобно, и не важно, насколько это сложно бизнесу</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section2__nav">
+            <div class="projectSlider">
+              
+              <button class="button-prev">
+                <img src="{%static 'img/btn-arrow-left.svg'%}" alt="arrowLeft">
+              </button>
+              <div class="dots-wrapper">
+              <div class="dot active-dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+            <button class="button-next">
+              <img src="{%static 'img/btn-arrow-right.svg'%}" alt="arrowRight">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <section class="work-algorithm">
+        <div class="work-algorithm-inner">
+          <h3 class="work-algorithm-inner__title">Как мы работаем</h3>
+          <p class="faq">Часто задаваемые вопросы</p>
+          
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <input class="faq-input" type="checkbox" id="faq_1">
+              <label class="faq-title" for="faq_1">Сроки аренды </label>
+              <div class="faq-text">
+                <p>Ответ на вопрос <br> Сроки аренды</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <input class="faq-input" type="checkbox" id="faq_2">
+              <label class="faq-title" for="faq_2">Возможен ли карьерный рост?</label>
+              <div class="faq-text">
+                <p>Ответ на вопрос <br> Возможен ли карьерный рост?</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <input class="faq-input" type="checkbox" id="faq_3">
+              <label class="faq-title" for="faq_3">Есть ли первоначальный взнос/залог?</label>
+              <div class="faq-text">
+                <p>Ответ на вопрос <br> Есть ли первоначальный взнос/залог?</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <input class="faq-input" type="checkbox" id="faq_4">
+              <label class="faq-title" for="faq_4">Количество заказов</label>
+              <div class="faq-text">
+                <p>Ответ на вопрос <br> Количество заказов</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <input class="faq-input" type="checkbox" id="faq_5">
+              <label class="faq-title" for="faq_5">Какие есть графики работы?</label>
+              <div class="faq-text">
+                <p>Мы предоставляем несколько графиков на выбор:<br>
+                  2/2, 3/3, 6/1 и др  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section class="question">
+    <div class="question-inner">
+      <h3 class="question-inner__title">Остались вопросы?</h3>
+      <p class="question-inner__text">Отправьте нам свой вопрос и получите <br> бесплатную консультацию</p>
+      
+      <div class="form__container">
+        <form action="" class="form">
+
+          <div class="form__group">
+            <input type="text" class="form__input" placeholder="Ваше имя">
+            <label for="" class="form__label" ></label>
+          </div>
+
+          <div class="form__group">
+            <input type="tel" class="form__input" placeholder="Ваш телефон">
+            <label for="" class="form__label"></label>
+          </div>
+        
+          <div class="form__group-big">
+            <textarea class="form__input-big" placeholder="Ваш вопрос"></textarea>
+            <label for="" class="form__label"></label>
+          </div>
+
+          <button class="form__button" type="submit">Отправить</button>
+
+          <div class="checkbox">
+            <input class="custom-checkbox" type="checkbox" id="question" name="question"/>
+            <label class="application-checkbox" for="question">Подтверждаю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</label>
+        </div>
+        </form>
+      </div>
+    </div>
+    <img class="question__img" src="{%static 'img/question-img.jpg'%}" alt="questionImg">
+    </section>
+  </div>
+{% endblock page %}
+
+{% block script %}
+    <script src="{%static 'js/appAboutUs.js'%}"></script>
+{% endblock script %}
+
+
+      
+  
+    

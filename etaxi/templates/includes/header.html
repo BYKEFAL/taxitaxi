@@ -1,0 +1,53 @@
+{%load static%}
+<header id="header-section">
+   <div class="container">
+       <div class="actual-city">
+           <div class="actual-city-top">
+               <figure class="city-img-actual">
+                   <img src="{%static 'img/location_city.svg'%}" alt="location icon">
+               </figure>
+               <h4 class="city-text">Ваш город <span class="your-city">Иркутск</span>?</h4>
+           </div>
+           <div class="actual-city-bottom">
+               <button class="button actual-city__button actual-city__button--yellow">Всё верно</button>
+               <button class="actual-city__button actual-city__button--white">Выбрать город</button>
+           </div>
+       </div>
+       <div class="header">
+           <div class="header-logo">
+               <a href="{% url 'etaxi:home'%}"><img class="header-logo__img" src="{%static 'img/logo.svg'%}" alt="etaxi logo"></a>
+           </div>
+           <div class="header-description">
+               <div class="header-top">
+                   <figure class="header-geo">
+                       <img src="{%static 'img/location-header.svg'%}" alt="location">
+                   </figure>
+                   <span class="header-city">Иркутск</span>
+                   <figure class="header-expandMore">
+                       <img src="{%static 'img/expand_more.svg'%}" alt="expand_more">
+                   </figure>
+                   <figure class="header-mode">
+                       <img src="{%static 'img/clock-header.svg'%}" alt="clock">
+                   </figure>
+                   <span class="operating-mode">пн-пт 9:00–18:00, сб 10:00–14:00</span>
+                   <figure class="header-call">
+                       <img src="{%static 'img/call-header.svg'%}" alt="call">
+                   </figure>
+                   <a class="header-number" href="tel:+73822984033">+7 (382) 298-40-33</a>
+               </div>       
+               <div class="header-bottom">
+                   <nav class="header-nav">
+                       <ul class="header-nav-list">
+                           <li class="header-nav__item"><a class="header-nav__link" href="/#catalog">Каталог</a></li>
+                           <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:about'%}">О нас</a></li>
+                           <li class="header-nav__item"><a class="header-nav__link" href="/#rent">Условия аренды</a></li>
+                           <li class="header-nav__item"><a class="header-nav__link" href="/#reviews">Отзывы</a></li>
+                           <li class="header-nav__item"><a class="header-nav__link" href="/#contacts">Контакты</a></li>
+                       </ul>
+                   </nav>
+                   <button class="button header-nav__button">Оставить заявку</button>
+               </div>   
+           </div>
+       </div>
+    </div>   
+</header>

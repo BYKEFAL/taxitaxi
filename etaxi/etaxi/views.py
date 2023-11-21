@@ -1,26 +1,77 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, HttpResponseRedirect
 from django.template.response import TemplateResponse
 import requests
 import json
 from ipware import get_client_ip
 from django.contrib.gis.geoip2 import GeoIP2
 from dadata import Dadata
+from .models import *
+from .forms import DriverAddForm
 
 # Определение города на Русском по IP
 token = "d1b7f800e7beb52dbc7b32f8f140808fe8e7bfaa"
 dadata = Dadata(token)
 
 def home(request):
-    client_ip, is_routable = get_client_ip(request)
-    client_ip = '176.59.144.81' #Тестовый IP не забыть удалить
-    # response = dadata.iplocate(client_ip)['data']['city']
-    response = 'ответ от АПИ'
-    print(client_ip)
-    print(response)
-    header = 'Тест кнопки'
-    data = {'ip': client_ip, 'city': response, 'header': header }
+    # client_ip, is_routable = get_client_ip(request)
+    # client_ip = '176.59.144.81' #Тестовый IP не забыть удалить
+    # # response = dadata.iplocate(client_ip)['data']['city']
+    # response = 'ответ от АПИ'
+    # print(client_ip)
+    # print(response)
+    # header = 'Тест кнопки'
+    # feedback = FeedbackVideo.objects.get(pk=1)
+    # data = {'ip': client_ip, 'city': response, 'header': header, 'feedback': feedback, }
+    cities = CityPark.objects.all()
     
-    return render(request, 'default.html', data)
+    novalid = None
+    if request.method == "POST":
+        form = DriverAddForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = DriverAddForm()
+            return redirect('/')
+        else:
+            novalid = True
+    else:
+        form = DriverAddForm()
+        
+    context = {'cities': cities, 'form': form, 'novalid': novalid}
+    return render(request, 'index.html', context)
+
+def contacts(request):
+    novalid = None
+    if request.method == "POST":
+        form = DriverAddForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = DriverAddForm()
+            return redirect(request.META.get('HTTP_REFERER'))
+            # return redirect('/contacts')
+        else:
+            novalid = True
+    else:
+        form = DriverAddForm()
+        
+    context = {'form': form, 'novalid': novalid}
+    return render(request, 'etaxi/pageContacts.html', context)
+
+def about(request):
+    novalid = None
+    if request.method == "POST":
+        form = DriverAddForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = DriverAddForm()
+            return redirect(request.META.get('HTTP_REFERER'))
+            # return redirect('/about')
+        else:
+            novalid = True
+    else:
+        form = DriverAddForm()
+        
+    context = {'form': form, 'novalid': novalid}
+    return render(request, 'etaxi/pageAboutUs.html', context)
 
 '''
 Получение ip клиента через х-форвардед-фор, с последующим получением данных о Геолокации чере стороннее API Abstract

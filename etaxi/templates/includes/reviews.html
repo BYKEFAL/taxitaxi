@@ -1,0 +1,206 @@
+{%load static%}
+
+<section class="reviews" id="reviews">
+   <h2 class="reviews-title title">Отзывы водителей о Ё-такси</h2>
+   <div class="gallery">
+       <div class="gallery-container">
+           <div class="gallery-item gallery-item-1" data-index="1">
+               <video class="video-item video-item-1" max-width="588" max-height="330" controls="controls">
+                   <source src="{%static 'video/review_01.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                </video>
+               <div class="reviews-text text">Сандара Аян, Томск</div>
+           </div>
+           <div class="gallery-item gallery-item-2" data-index="2">
+               <video class="video-item video-item-2" max-width="588" max-height="330" controls="controls">
+                   <source src="{%static 'video/review_02.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                </video>
+               <div class="reviews-text text">Александр Белоусов, Кемерово</div>
+           </div>
+           <div class="gallery-item gallery-item-3 gallery-item--active" data-index="3" >
+               <video class="video-item video-item-3 active-video" max-width="588" max-height="330" controls="controls">
+                   <source src="{%static 'video/review_03.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                </video>
+               <div class="reviews-text text">Максим Надыкта, Новокузнецк</div>
+           </div>
+           <div class="gallery-item gallery-item-4" data-index="4">
+               <video class="video-item video-item-4" max-width="588" max-height="330" controls="controls">
+                   <source src="{%static 'video/review_04.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                </video>
+               <div class="reviews-text text">Элвин Кахраман, Красноярск</div>
+           </div>
+           <div class="gallery-item gallery-item-5" data-index="5">
+               <video class="video-item video-item-5" max-width="588" max-height="330" controls="controls">
+                   <source src="{%static 'video/review_05.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                </video>
+               <div class="reviews-text text">Данил Шереметьев, Красноярск</div>
+           </div>
+       </div>
+       <div class="gallery-controls"></div>
+       <figure class="btn-play">
+           <img src="{%static 'img/btn-play.svg'%}" alt="btn-play">
+       </figure>
+   </div>
+   <div id="reviews-text__slider">
+       <div id="carousel">
+         <div id="review-text__slider-container">
+           <div class="reviews-text__slide-item">
+               <div class="reviews-text-user text">Хочу поделиться своим положительным опытом работы в парке Ё-такси. Я уже несколько месяцев являюсь водителем этого парка и хотелось бы отметить его преимущества.
+                   Преимуществом парка Ё-такси является гибкий график работы. Здесь можно выбрать один из…
+               </div>
+               <div class="reviews-rating">
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+               </div>
+               <div class="reviews-source">
+                   <div class="source-person"><span class="source-person__name">Максимка</span>,<span class="source-person__date">31.10.2023</span></div>
+                   <div class="sourse-review"><u>FLAMP</u></div>
+               </div>
+           </div>
+           <div class="reviews-text__slide-item">
+               <div class="reviews-text-user text">Отличный парк, хорошие условия, здесь действительно можно заработать, мнеджеры всегда помогут и подскажут. А так же есть куратор новичков, который может направить в нужное русло так сказать😅 Машины в отличном состоянии, все от 2019 года
+               </div>
+               <div class="reviews-rating">
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+               </div>
+               <div class="reviews-source">
+                   <div class="source-person"><span class="source-person__name">Даша</span>,<span class="source-person__date">03.08.2023</span></div>
+                   <div class="sourse-review"><u>Яндекс.Карты</u></div>
+               </div>
+           </div>
+           <div class="reviews-text__slide-item">
+               <div class="reviews-text-user text">Хочу поделиться своим положительным опытом работы в парке Ё-такси. Я уже несколько месяцев являюсь водителем этого парка и хотелось бы отметить его преимущества.
+                   Преимуществом парка Ё-такси является гибкий график работы. Здесь можно выбрать один из…
+               </div>
+               <div class="reviews-rating">
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+               </div>
+               <div class="reviews-source">
+                   <div class="source-person"><span class="source-person__name">Максимка</span>,<span class="source-person__date">31.10.2023</span></div>
+                   <div class="sourse-review"><u>FLAMP</u></div>
+               </div>
+           </div>
+           <div class="reviews-text__slide-item">
+               <div class="reviews-text-user text">Отличный парк, хорошие условия, здесь действительно можно заработать, мнеджеры всегда помогут и подскажут. А так же есть куратор новичков, который может направить в нужное русло так сказать😅 Машины в отличном состоянии, все от 2019 года
+               </div>
+               <div class="reviews-rating">
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+               </div>
+               <div class="reviews-source">
+                   <div class="source-person"><span class="source-person__name">Даша</span>,<span class="source-person__date">03.08.2023</span></div>
+                   <div class="sourse-review"><u>Яндекс.Карты</u></div>
+               </div>
+           </div>
+           <div class="reviews-text__slide-item">
+               <div class="reviews-text-user text">Хочу поделиться своим положительным опытом работы в парке Ё-такси. Я уже несколько месяцев являюсь водителем этого парка и хотелось бы отметить его преимущества.
+                   Преимуществом парка Ё-такси является гибкий график работы. Здесь можно выбрать один из…
+               </div>
+               <div class="reviews-rating">
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+               </div>
+               <div class="reviews-source">
+                   <div class="source-person"><span class="source-person__name">Максимка</span>,<span class="source-person__date">31.10.2023</span></div>
+                   <div class="sourse-review"><u>FLAMP</u></div>
+               </div>
+           </div>
+           <div class="reviews-text__slide-item">
+               <div class="reviews-text-user text">Отличный парк, хорошие условия, здесь действительно можно заработать, мнеджеры всегда помогут и подскажут. А так же есть куратор новичков, который может направить в нужное русло так сказать😅 Машины в отличном состоянии, все от 2019 года
+               </div>
+               <div class="reviews-rating">
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+                   <figure class="rating-container">
+                       <img src="{%static 'img/Star.svg'%}" alt="rating-star" class="rating-star">
+                   </figure>
+               </div>
+               <div class="reviews-source">
+                   <div class="source-person"><span class="source-person__name">Даша</span>,<span class="source-person__date">03.08.2023</span></div>
+                   <div class="sourse-review"><u>Яндекс.Карты</u></div>
+               </div>
+           </div>
+         </div>
+       </div>
+       <div id="reviews-slider-button">
+           <button id="prev-button"></button>
+           <button id="next-button"></button>
+       </div>
+   </div>
+</section>

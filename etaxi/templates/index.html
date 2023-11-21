@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}Etaxi{%endblock title%}</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {%block styleAbout%}
+    <link rel="stylesheet" href="{% static 'css/styleContacts.css'%}">
+    {%endblock styleAbout%}
+    
+</head>
+<body>
+
+    <!------------- block header -------------->
+    {% include './includes/header.html' %}
+    <!------------- endblock header -------------->
+    
+    <main id="main-section">
+
+       <!------------- block frompopup -------------->
+       {% include './includes/form_popup.html' %}
+       <!------------- endblock formpopup -------------->
+
+       {%block page%}
+        <div class="main-block">
+            <img class="background-left" src="{%static 'img/background-left.png'%}" alt="background-left">
+            <img class="background-right" src="{%static 'img/background-right.png'%}" alt="background-right">
+            <div class="container">
+                <section class="main">
+                    <div class="main-left">
+                        <figure class="main-img">
+                            <img src="{%static 'img/background-car.png'%}" alt="background-car">
+                        </figure>
+                        <h4 class="main-text text">Официальный партнер Яндекс Такси</h4>
+                    </div>
+                    <div class="main-right">
+                        <h2 class="main-title title">Зарабатывайте <br> <span class="title--yellow"> от 3000 Р/день</span> на руки <br> в нашем таксопарке</h2>
+                        <div class="main-button__items">
+                            <button class="button main__button">Оставить заявку</button>
+                            <div class="main-description">
+                                <h3 class="main-subtitle subtitle">всё быстро и просто</h3>
+                                <h4 class="description-text">Оставьте заявку и уже сегодня <br> вы сможете зарабатывать </h4>
+                            </div>
+                        </div>
+                        <div class="main-tegs">
+                            <div class="main-tegs__item">
+                                <h2 class="tegs-title title">54</h2>
+                                <h4 class="tegs-text">таксопарка</h4>
+                            </div>
+                            <div class="main-tegs__item">
+                                <h2 class="tegs-title title">4000 +</h2>
+                                <h4 class="tegs-text">клиентов</h4>
+                            </div>
+                            <div class="main-tegs__item">
+                                <h2 class="tegs-title title">11</h2>
+                                <h4 class="tegs-text">городов</h4>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>         
+        </div>
+
+        <div class="container">
+
+            <!------------- block advantages -------------->
+            {% include './includes/advantages.html' %}
+            <!------------- endblock advantages -------------->
+
+            <!------------- block cars -------------->
+            {% include './includes/cars.html' %}
+            <!------------- endblock cars -------------->
+
+             <!------------- block rent -------------->
+             {% include './includes/rent.html' %}
+             <!------------- endblock rent -------------->
+
+            <!------------- block rent -------------->
+            {% include './includes/reviews.html' %}
+            <!------------- endblock rent -------------->
+
+            <!------------- block rent -------------->
+            {% include './includes/offers.html' %}
+            <!------------- endblock rent -------------->
+
+            <!------------- block rent -------------->
+            {% include './includes/contacts.html' %}
+            <!------------- endblock rent -------------->
+            
+        </div>
+        {% endblock page %}
+    </main>
+
+    {% include './includes/footer.html' %}
+
+    <!------------ Scripts ---------------->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
+    {%block script%}
+    <script src="{%static 'js/app.js'%}"></script>
+    <script src="{%static 'js/videoSlider.js'%}"></script>
+    {%endblock script%}
+
+</body>
+</html>

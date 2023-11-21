@@ -46,10 +46,12 @@ INSTALLED_APPS = [
     'phonenumber_field',
     'embed_video',
     'rest_framework',
+    'sorl.thumbnail',
 ]
 
 GEOIP_PATH = 'geo/'
 PHONENUMBER_DEFAULT_REGION = "RU"
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 SITE_ID = 1
 
