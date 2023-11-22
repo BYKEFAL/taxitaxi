@@ -16,6 +16,8 @@ class City(models.Model):
         
 class CityPark(models.Model):
     name = models.CharField(verbose_name='Город', max_length=200)
+    latitude = models.FloatField(verbose_name='Широта', null=False)
+    longitude = models.FloatField(verbose_name='Долгота', null=False)
     
     def __str__(self):
         return self.name

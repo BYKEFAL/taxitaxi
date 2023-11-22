@@ -10,6 +10,56 @@ Etaxi About
 <link rel="stylesheet" href="{% static 'css/styleAboutUs.css'%}">
 {% endblock styleAbout %}
 
+
+
+{% block changeCity %}
+{% if novalid %}
+<script defer src="{%static 'js/applicationApp.js'%}"></script>
+<form class="application-form" style="display: flex; margin-bottom: 10vh; top:35%;" action="" method="POST" id="reg-form">
+{% else %}
+<form class="application-form" action="" method="POST" id="reg-form">
+{% endif %}
+   {% csrf_token %}
+   <figure class="application-close">
+       <img src="{%static 'img/close-form.svg'%}">
+   </figure>
+   <h2 class="application-subtitle">Оставите заявку</h2>
+   <h3 class="application-text">Первый день аренды авто бесплатно!</h3>
+   {{ form.name }}
+   <div class="form-error">{{ form.name.errors }}</div>
+   {{ form.phone_number }}
+   <div class="form-error">{{ form.phone_number.errors }}</div>
+
+   <div style="display: none;">{{ form.city }}
+        <div class="form-error">{{ form.city.errors }}</div>
+   </div>
+   <button class="button application-button" type="submit">Оставить заявку</button>
+   <div class="application-checkbox">
+   {{form.confirmation}}
+   <label class="application-checkbox" for="confirmation">Подтверждаю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</label>
+   </div>
+</form>
+
+<div class="popUp">
+   <figure class="application-close popUp-close">
+       <img src="{%static 'img/close-form.svg'%}">
+   </figure>
+   <h4 class="popUp-title">Выберите город</h4>
+   <div class="popUp-search-city">
+       <input class="popUp-city" placeholder="Ваш город">
+       <figure class="popUp-img-city">
+           <img src="{%static 'img/search.svg'%}" alt="search">
+       </figure>
+       <div class="popUp-list">
+           {%for city in cities%}
+           <a class="popUp__item" href="{% url 'etaxi:about' city.name %}">{{city}}</a>
+           {%endfor%}
+       </div>
+   </div>
+</div>
+
+{% endblock changeCity %}
+
 {% block page %}
   <div class="container">
     <section class="aboutUs">

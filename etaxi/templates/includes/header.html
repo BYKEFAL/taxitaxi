@@ -6,7 +6,7 @@
                <figure class="city-img-actual">
                    <img src="{%static 'img/location_city.svg'%}" alt="location icon">
                </figure>
-               <h4 class="city-text">Ваш город <span class="your-city">Иркутск</span>?</h4>
+               <h4 class="city-text">Ваш город <span class="your-city">{{citygeo}}</span>?</h4>
            </div>
            <div class="actual-city-bottom">
                <button class="button actual-city__button actual-city__button--yellow">Всё верно</button>
@@ -15,7 +15,7 @@
        </div>
        <div class="header">
            <div class="header-logo">
-               <a href="{% url 'etaxi:home'%}"><img class="header-logo__img" src="{%static 'img/logo.svg'%}" alt="etaxi logo"></a>
+               <a href="{% url 'etaxi:homecity' citygeo.name%}"><img class="header-logo__img" src="{%static 'img/logo.svg'%}" alt="etaxi logo"></a>
            </div>
            <div class="header-description">
                <div class="header-top">

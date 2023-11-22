@@ -4,7 +4,7 @@
      <div class="footer-inner">
        <div class="footer-up">
          <div class="footer-logo">
-           <a href="{% url 'etaxi:home'%}"><img class="footer-logo__img" src="{%static 'img/logo.svg'%}" alt="etaxi logo"></a>
+           <a href="{% url 'etaxi:homecity' citygeo.name %}"><img class="footer-logo__img" src="{%static 'img/logo.svg'%}" alt="etaxi logo"></a>
          </div>
          <div class="footer-phone-social">
            <a class="footer-phone" href="tel:+73822984033">+7 (382) 298-40-33</a>
@@ -26,19 +26,19 @@
          <nav class="nav-footer">
            <ul class="nav-list">
              <li class="nav__item-footer">
-               <a class="nav__link-footer" href="#catalog">Каталог</a>
+               <a class="nav__link-footer" href="{%url 'etaxi:homecity' citygeo.name%}#catalog">Каталог</a>
              </li>
              <li class="nav__item-footer">
-               <a class="nav__link-footer" href="pageAboutUs.html#about">О нас</a>
+               <a class="nav__link-footer" href="{%url 'etaxi:about' citygeo.name%}">О нас</a>
              </li>
              <li class="nav__item-footer">
-               <a class="nav__link-footer" href="#rent">Условия аренды</a>
+               <a class="nav__link-footer" href="{%url 'etaxi:homecity' citygeo.name%}#rent">Условия аренды</a>
              </li>
              <li class="nav__item-footer">
-               <a class="nav__link-footer" href="#reviews">Отзывы</a>
+               <a class="nav__link-footer" href="{%url 'etaxi:homecity' citygeo.name%}#reviews">Отзывы</a>
              </li>
              <li class="nav__item-footer">
-               <a class="nav__link-footer" href="#contacts">Контакты</a>
+               <a class="nav__link-footer" href="{%url 'etaxi:homecity' citygeo.name%}#contacts">Контакты</a>
              </li>
            </ul>
          </nav>
