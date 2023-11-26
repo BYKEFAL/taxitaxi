@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 
 {% load static %}
+{% load embed_video_tags %}
 
 {% block title %}
 Etaxi About
@@ -65,9 +66,22 @@ Etaxi About
     <section class="aboutUs">
         <h3 class="main__title">О нас</h3>
         <div class="main__video-slogan">
-          <video class="video-aboutUs" width="611" height="415" controls="controls">
-            <source src="{%static 'video/presentation rev2.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-         </video>
+          {%for video in videoabout%}
+              {%if video.video.url%}
+                  <video class="video-aboutUs" width="611" height="415" controls="controls">
+                      <source src="{{video.video.url}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                  </video>
+              {%else%}
+                <div class="video-aboutUs">
+                  {% video video.youtube as my_video %}
+                  {% video my_video "611x415" %}
+                  {% endvideo %}
+                </div>
+              {%endif%}
+          {%endfor%}
+          
+
+          
          <figure class="btn-play">
             <img src="{%static 'img/btn-play.svg'%}" alt="btn-play">
          </figure>
@@ -95,54 +109,18 @@ Etaxi About
             <div class="section2__container">
               <div class="slider-wrapper">
                 <div class="slider-line">
-
-                  <div class="card">
-                    <div class="card__container">
-                      <img class="card__img" src="{%static 'img/bruchovskih.jpg'%}" alt="man">
-                      <h2>Брюховских <br>
-                       Владислав</h2>
-                      <p>Операционный директор сети Ё-такси</p>
-                      <p class="card__img-text">Мы - современный, иновационный таксопарк! Наша задача - создать для водителя комфортные условия для стабильного заработка! Мы ждём тебя в нашей команде, коллега!</p>
-                    </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card__container">
-                     <img class="card__img" src="{%static 'img/zlobin.jpg'%}" alt="man">
-                      <h2>Злобин <br>Валентин Андреевич</h2>
-                     <p>Руководитель макрорегиона: Восточный</p>
-                     <p class="card__img-text">Наша задача сделать так, чтобы клиенту было во всём удобно, и не важно, насколько это сложно бизнесу</p>
-                    </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card__container">
-                      <img class="card__img" src="{%static 'img/dunbinskiy.jpg'%}" alt="man">
-                      <h2>Дунбинский <br> 
-                       Сергей Валерьевич </h2>
-                      <p>Директор Краснояского филиала Ё-такси</p>
-                      <p class="card__img-text">Рынок такси активно развивается и мы развиваемся вместе с ним, ставя перед собой амбициозные цели</p>
-                    </div>
-                  </div>
-
-                  <div class="card">
-                    <div class="card__container">
-                      <img class="card__img" src="{%static 'img/bruchovskih.jpg'%}" alt="man">
-                      <h2>Брюховских <br>
-                       Владислав</h2>
-                      <p>Операционный директор сети Ё-такси</p>
-                      <p class="card__img-text">Мы - современный, иновационный таксопарк! Наша задача - создать для водителя комфортные условия для стабильного заработка! Мы ждём тебя в нашей команде, коллега!</p>
-                    </div>
-                  </div>
                   
+                  {%for manager in managers%}
                   <div class="card">
                     <div class="card__container">
-                     <img class="card__img" src="{%static 'img/zlobin.jpg'%}" alt="man">
-                      <h2>Злобин <br>Валентин Андреевич</h2>
-                     <p>Руководитель макрорегиона: Восточный</p>
-                     <p class="card__img-text">Наша задача сделать так, чтобы клиенту было во всём удобно, и не важно, насколько это сложно бизнесу</p>
+                      <img class="card__img" src="{{manager.image.url}}" alt="man">
+                      <h2>{{manager.lastName}}<br> 
+                       {{manager.firstName}} {%if manager.thirdName%} {{manager.thirdName}} {%endif%} </h2>
+                      <p>{{manager.position}}</p>
+                      <p class="card__img-text">{{manager.discription}}</p>
                     </div>
                   </div>
+                  {%endfor%}
 
                 </div>
               </div>

@@ -54,11 +54,12 @@ function closeSlectCity() {
   actualCity.style.display = "none";
 }
 
-// const showExpandAbout = document.querySelector(".header-cityAbout");
-// const showCityAbout = document.querySelector(".header-expandMoreAbout");
+/*Show city on page contacts*/
+const showExpandAbout = document.querySelector(".header-cityAbout");
+const showCityAbout = document.querySelector(".header-expandMoreAbout");
 
-// showExpandAbout.addEventListener("click",showPopUp)
-// showCityAbout.addEventListener("click",showPopUp)
+showExpandAbout.addEventListener("click",showPopUp)
+showCityAbout.addEventListener("click",showPopUp)
 
 /*Show-hidden popUp*/
 const popUp = document.querySelector(".popUp");

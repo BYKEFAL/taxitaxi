@@ -61,19 +61,29 @@ class TaxiCar(models.Model):
         (PIKUP, 'Пикап'),
     )
     
+    AUTOMAT = 'AT'
+    MECHANIC = 'MC'
+    
+    GEAR_CHOICES = (
+        (AUTOMAT, 'АКПП'),
+        (MECHANIC, 'МКПП'),
+    )
+    
     brand = models.CharField(verbose_name='Марка', max_length=100, blank=False, null=False)
     model = models.CharField(verbose_name='Модель', max_length=100, blank=False, null=False)
-    carType = models.CharField(verbose_name='Тип Кузова', max_length=2, choices=CATEGORY_CHOICES)
-    regNumber = models.CharField(verbose_name='Рег. номер', max_length=20, blank=False, null=False)
-    yearIssu = models.IntegerField(verbose_name='Год выпуска')
+    carType = models.CharField(verbose_name='Тип Кузова', max_length=2, choices=CATEGORY_CHOICES,blank=True, null=True)
+    regNumber = models.CharField(verbose_name='Рег. номер', max_length=20, blank=True, null=True)
+    yearIssu = models.IntegerField(verbose_name='Год выпуска', blank=False, null=False)
     status = models.BooleanField(default=False, verbose_name='Занят/Свободен')
     driver = models.ManyToManyField(Driver, through='DriverMany')
-    discription = models.TextField(verbose_name='Описание')
+    discription = models.TextField(verbose_name='Описание', blank=True, null=True)
     image = models.ImageField(upload_to='images/cars/%Y-%m-%d/', verbose_name='Загрузить Фото')
     dateCreation = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания' )
     dateUpdate = models.DateTimeField(auto_now=True, verbose_name='Дата изменения', null=True )
     city = models.ForeignKey(CityPark, on_delete=models.SET_NULL, verbose_name='Город', null=True)
-    price = models.IntegerField(verbose_name='Цена')
+    price = models.IntegerField(verbose_name='Цена', blank=True, null=True)
+    gearType = models.CharField(verbose_name='Коробка передач', max_length=2, choices=GEAR_CHOICES, blank=False, null=False)
+    engineCapacity = models.FloatField(verbose_name='Обьем двигателя', max_length=100, blank=False, null=False)
     class Meta:
         verbose_name_plural = "Автомобили"
         verbose_name = 'Автомобиль'
@@ -82,8 +92,9 @@ class TaxiCar(models.Model):
         return f'{self.brand} {self.model} {self.regNumber} - {self.city}'
     
 class ParkManager(models.Model):
-    firstName = models.CharField(max_length=40, blank=False, null=False, verbose_name='Имя')
-    lastName = models.CharField(max_length=40, verbose_name='Фамилия')
+    firstName = models.CharField(max_length=100, blank=False, null=False, verbose_name='Имя')
+    lastName = models.CharField(max_length=100, verbose_name='Фамилия', blank=True, null=True)
+    thirdName = models.CharField(max_length=100, verbose_name='Отчесвто', blank=True, null=True)
     phone_number = PhoneNumberField(unique=True, null=False, blank=False, verbose_name='Телефон')
     email = models.EmailField(verbose_name='Почта')
     dateCreation = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
@@ -91,6 +102,7 @@ class ParkManager(models.Model):
     city = models.ForeignKey(CityPark, on_delete=models.SET_NULL, verbose_name='Город', null=True)
     position = models.CharField(max_length=200, verbose_name='Должность')
     image = models.ImageField(upload_to='images/managers/%Y-%m-%d/', verbose_name='Загрузить Фото', null=True, blank=True)
+    discription = models.TextField(verbose_name='Описание', blank=True, null=True)
     
     
     class Meta:
@@ -132,6 +144,21 @@ class FeedbackVideo(models.Model):
         
     def __str__(self):
         return f'г.{self.city} {self.name}' 
+    
+class VideoAbout(models.Model):
+    name = models.CharField(verbose_name='Название видео', max_length=50, blank=False, null=False)
+    video = models.FileField(upload_to='video/videoabout/%Y-%m-%d/', verbose_name='Видеофайл', blank=True, null=True,)
+    youtube = EmbedVideoField(blank=True, null=True, verbose_name='Youtube ссылка')
+    dateCreation = models.DateTimeField(auto_now_add=True)
+    dateUpdate = models.DateTimeField(auto_now=True, verbose_name='Дата изменения', null=True )
+    
+    
+    class Meta:
+        verbose_name_plural = "Виде о нас"
+        verbose_name = 'Видео о нас'
+        
+    def __str__(self):
+        return f'Видео о нас' 
     
 class TaxiCarMany(models.Model):
     carParkThrough = models.ForeignKey(CarPark, on_delete=models.CASCADE)

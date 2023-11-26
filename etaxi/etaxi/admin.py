@@ -29,12 +29,13 @@ class TaxiCarAdmin(admin.ModelAdmin):
     list_display_links = ('brand', 'get_photo')
     search_fields = ('brand', 'model', 'carType', 'regNumber', 'yearIssu', 'price',)
     #порядок полей именно в форме редактирования
-    fields = ('brand', 'model', 'carType', 'regNumber', 'yearIssu', 'status', 'price', 'city', 
-              'get_photo2', 'image',  'discription', 'dateUpdate', 'dateCreation',   )
+    fields = ('brand', 'model', 'gearType', 'engineCapacity', 'yearIssu', 'city', 'get_photo2', 'carType', 'regNumber', 'status', 'price', 
+               'image',  'discription', 'dateUpdate', 'dateCreation', )
     #для добавления не редактируемых полей
     readonly_fields = ('dateCreation', 'dateUpdate', 'get_photo2',)
     save_on_top = True
     list_per_page = 10
+    save_as = True
 
     def get_photo(self, object):
         if object.image:
@@ -56,7 +57,7 @@ class ParkManagerAdmin(admin.ModelAdmin):
     list_display_links = ('get_photo', 'firstName', )
     search_fields = ('firstName', 'lastName', 'phone_number', 'email', 'position',)
     list_filter = ('city',)
-    fields = ('get_photo2', 'firstName', 'lastName', 'phone_number', 'email', 'city', 'position', 'image', 'dateCreation', 'dateUpdate',  )
+    fields = ('get_photo2', 'lastName', 'firstName', 'thirdName', 'position', 'discription', 'phone_number', 'email', 'city', 'image', 'dateCreation', 'dateUpdate',  )
     readonly_fields = ('dateCreation', 'dateUpdate', 'get_photo2',)
     save_on_top = True
     list_per_page = 10
@@ -77,12 +78,18 @@ class ParkManagerAdmin(admin.ModelAdmin):
     get_photo2.short_description = 'Фото'
     
    
+class DriverAdmin(admin.ModelAdmin):
+    list_per_page = 10
+    
+   
 admin.site.register(CityPark)
-admin.site.register(Driver)
+admin.site.register(Driver, DriverAdmin)
 admin.site.register(TaxiCar, TaxiCarAdmin)
 admin.site.register(ParkManager, ParkManagerAdmin)
 admin.site.register(CarPark, CarParkAdmin)
+admin.site.register(VideoAbout)
 admin.site.register(FeedbackVideo)
+
 
 
 

@@ -1,0 +1,34 @@
+{%load static%}
+<div class="contacts__address">
+  <p class="contacts__address-title">Контакты</p>
+  <div class="contacts__address-total">
+    <div class="contacts__address-location">
+      <img src="{%static 'img/location_contact.svg'%}" alt="location" />
+      <p class="contacts__address-text">
+        г. Омск, ​​Железнодорожная 1-я, 1/1
+      </p>
+    </div>
+    <div class="contacts__address-works">
+      <img src="{%static 'img/clock.svg'%}" alt="clock" />
+      <p class="contacts__address-text">
+        Пн-Пт с 9:00 до 18:00 <br>
+        Сб-Вс с 10:00 до 14:00  
+      </p>
+    </div>
+    <div class="contacts__address-phone">
+      <img src="{%static 'img/call.svg'%}" alt="phone">
+      <p class="contacts__address-text">
+        +7 (3812) 21‒82‒90
+        </p>
+    </div>
+  </div>
+  <a class="button contacts__button" href="{%url 'etaxi:contacts' citygeo.name %}">Все филиалы</a>
+</div>
+<div class="map">
+  <iframe
+      src="https://yandex.ru/map-widget/v1/?um=constructor%3A7fc5228bc79dfb651b148a70d18e7e0204f47c9ea58381fe7b7cabcdd54455d2&amp;source=constructor"
+      width="690"
+      height="440"
+      frameborder="0">
+  </iframe>
+</div>

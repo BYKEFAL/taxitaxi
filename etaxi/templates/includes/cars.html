@@ -2,123 +2,25 @@
 <section class="catalog" id="catalog">
    <h2 class="catalog-title title">Автомобили нашего таксопарка</h2>
    <h4 class="catalog-age">Все авто не старше 2-х лет</h4>
+   {%if cars%}
    <div class="catalog-inner">
+       {%for car in cars%}
        <div class="catalog__item">
            <figure class="catalog-img">
-               <img src="{%static 'img/Cars_models_1.png'%}" alt="Volkswagen Polo">
+               <img src="{{car.image.url}}" alt="Volkswagen Polo">
            </figure>
-           <h3 class="catalog-subtitle subtitle">Volkswagen Polo</h3>
+           <h3 class="catalog-subtitle subtitle">{{car.brand}} {{car.model}}</h3>
            <ul class="catalog-text text">
-               <li>Год выпуска: 2022 г.</li>
-               <li>АКПП</li>
-               <li>Объем двигателя 1.6 л</li>
+               <li>Год выпуска: {{car.yearIssu}} г.</li>
+               <li>{{car.get_gearType_display|safe}}</li>
+               <li>Объем двигателя {{car.engineCapacity}} л</li>
                <li>Авто на газу — экономия 200 р/ 100 км в сравнении с бензином</li>
            </ul>
            <button class="button catalog__button">Арендовать</button>
        </div>
-       <div class="catalog__item">
-           <figure class="catalog-img">
-               <img src="{%static 'img/Cars_models_2.png'%}" alt="Volkswagen Taos">
-           </figure>
-           <h3 class="catalog-subtitle subtitle">Volkswagen Taos</h3>
-           <ul class="catalog-text text">
-               <li>Год выпуска: 2020 г.</li>
-               <li>МКПП</li>
-               <li>Объем двигателя 1.6 л</li>
-               <li>Авто на газу — экономия 200 р/ 100 км в сравнении с бензином</li>
-           </ul>
-           <button class="button catalog__button">Арендовать</button>
-       </div>
-       <div class="catalog__item">
-           <figure class="catalog-img">
-               <img src="{%static 'img/Cars_models_3.png'%}" alt="Volkswagen Polo">
-           </figure>
-           <h3 class="catalog-subtitle subtitle">Volkswagen Polo</h3>
-           <ul class="catalog-text text">
-               <li>Год выпуска: 2020 г.</li>
-               <li>АКПП</li>
-               <li>Объем двигателя 1.6 л</li>
-               <li>Авто на газу — экономия 250 р/ 100 км в сравнении с бензином</li>
-           </ul>
-           <button class="button catalog__button">Арендовать</button>
-       </div>
-       <div class="catalog__item">
-           <figure class="catalog-img">
-               <img src="{%static 'img/Cars_models_4.png'%}" alt="Faw Bestune B70">
-           </figure>
-           <h3 class="catalog-subtitle subtitle">Faw Bestune B70</h3>
-           <ul class="catalog-text text">
-               <li>Год выпуска: 2023 г.</li>
-               <li>АКПП</li>
-               <li>Объем двигателя 1.5 л</li>
-               <li>Авто на газу — экономия 200 р/ 100 км в сравнении с бензином</li>
-           </ul>
-           <button class="button catalog__button">Арендовать</button>
-       </div>
-       <div class="catalog__item">
-           <figure class="catalog-img">
-               <img src="{%static 'img/Cars_models_5.png'%}" alt="Skoda Octavia">
-           </figure>
-           <h3 class="catalog-subtitle subtitle">Skoda Octavia</h3>
-           <ul class="catalog-text text">
-               <li>Год выпуска: 2020 г.</li>
-               <li>МКПП</li>
-               <li>Объем двигателя 1.6 л</li>
-               <li>Авто на газу — экономия 200 р/ 100 км в сравнении с бензином</li>
-           </ul>
-           <button class="button catalog__button">Арендовать</button>
-       </div>
-       <div class="catalog__item">
-           <figure class="catalog-img">
-               <img src="{%static 'img/Cars_models_6.png'%}" alt="Chevrolet Cobalt">
-           </figure>
-           <h3 class="catalog-subtitle subtitle">Chevrolet Cobalt</h3>
-           <ul class="catalog-text text">
-               <li>Год выпуска: 2022 г.</li>
-               <li>АКПП</li>
-               <li>Объем двигателя 1.5 л</li>
-               <li>Авто на газу — экономия 200 р/ 100 км в сравнении с бензином</li>
-           </ul>
-           <button class="button catalog__button">Арендовать</button>
-       </div>
-       <div class="catalog__item">
-           <figure class="catalog-img">
-               <img src="{%static 'img/Cars_models_7.png'%}" alt="Volkswagen Bora">
-           </figure>
-           <h3 class="catalog-subtitle subtitle">Volkswagen Bora</h3>
-           <ul class="catalog-text text">
-               <li>Год выпуска: 2022 г.</li>
-               <li>АКПП</li>
-               <li>Объем двигателя 1.6 л</li>
-               <li>Авто на газу — экономия 200 р/ 100 км в сравнении с бензином</li>
-           </ul>
-           <button class="button catalog__button">Арендовать</button>
-       </div>
-       <div class="catalog__item">
-           <figure class="catalog-img">
-               <img src="{%static 'img/Cars_models_8.png'%}" alt="Jac J7">
-           </figure>
-           <h3 class="catalog-subtitle subtitle">Jac J7</h3>
-           <ul class="catalog-text text">
-               <li>Год выпуска: 2022 г.</li>
-               <li>АКПП</li>
-               <li>Объем двигателя 1.5 л</li>
-               <li>Авто на газу — экономия 250 р/ 100 км в сравнении с бензином</li>
-           </ul>
-           <button class="button catalog__button">Арендовать</button>
-       </div>
-       <div class="catalog__item">
-           <figure class="catalog-img">
-               <img src="{%static 'img/Cars_models_9.png'%}" alt="Jetta VA3">
-           </figure>
-           <h3 class="catalog-subtitle subtitle">Jetta VA3</h3>
-           <ul class="catalog-text text">
-               <li>Год выпуска: 2022 г.</li>
-               <li>АКПП</li>
-               <li>Объем двигателя 1.5 л</li>
-               <li>Авто на газу — экономия 200 р/ 100 км в сравнении с бензином</li>
-           </ul>
-           <button class="button catalog__button">Арендовать</button>
-       </div>
+       {%endfor%}
+    {%else%}
+    <h2 class="catalog-title title">Автомобили пока не добавлены</h2>
+    {%endif%}
    </div>
 </section>

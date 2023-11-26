@@ -57,10 +57,28 @@ Etaxi Contacts
 
 {% block page %}
 
-{%if citygeo.name == 'Иркутск' %}
-    {% include 'maps_contacts/pageContactsIrkutsk.html' %}
-{%elif citygeo.name == 'Екатеринбург'%}
+{% if citygeo.name == 'Барнаул' %}
+    {% include 'maps_contacts/pageContactsBarnaul.html' %}
+{% elif citygeo.name == 'Екатеринбург' %}
     {% include 'maps_contacts/pageContactsEkaterinburg.html' %} 
+{% elif citygeo.name == 'Иркутск' %}
+    {% include 'maps_contacts/pageContactsIrkutsk.html' %}
+{% elif citygeo.name == 'Кемерово' %}
+    {% include 'maps_contacts/pageContactsKemerovo.html' %}
+{% elif citygeo.name == 'Красноярск' %}
+    {% include 'maps_contacts/pageContactsKrasnoiarsk.html' %}
+{% elif citygeo.name == 'Новокузнецк' %}
+    {% include 'maps_contacts/pageContactsNovokuznetsk.html' %}
+{% elif citygeo.name == 'Новосибирск' %}
+    {% include 'maps_contacts/pageContactsNovosibirsk.html' %}
+{% elif citygeo.name == 'Омск' %}
+    {% include 'maps_contacts/pageContactsOmsk.html' %}
+{% elif citygeo.name == 'Томск' %}
+    {% include 'maps_contacts/pageContactsTomsk.html' %}
+{% elif citygeo.name == 'Тюмень' %}
+    {% include 'maps_contacts/pageContactsTumen.html' %}
+{% elif citygeo.name == 'Улан-Удэ' %}
+    {% include 'maps_contacts/pageContactsUlanUde.html' %}
 {%endif%}
 
 {% endblock page %}

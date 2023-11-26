@@ -1,0 +1,34 @@
+{%load static%}
+<div class="contacts__address">
+  <p class="contacts__address-title">Контакты</p>
+  <div class="contacts__address-total">
+    <div class="contacts__address-location">
+      <img src="{%static 'img/location_contact.svg'%}" alt="location" />
+      <p class="contacts__address-text">
+        г. Барнаул, ​Павловский тракт, 198е
+      </p>
+    </div>
+    <div class="contacts__address-works">
+      <img src="{%static 'img/clock.svg'%}" alt="clock" />
+      <p class="contacts__address-text">
+        Пн-Пт с 9:00 до 18:00 <br>
+        Сб-Вс с 10:00 до 16:00 
+      </p>
+    </div>
+    <div class="contacts__address-phone">
+      <img src="{%static 'img/call.svg'%}" alt="phone">
+      <p class="contacts__address-text">
+        +7(3852) 22-41-64
+        </p>
+    </div>
+  </div>
+  <a class="button contacts__button" href="{%url 'etaxi:contacts' citygeo.name %}">Все филиалы</a>
+</div>
+<div class="map">
+  <iframe
+      src="https://yandex.ru/map-widget/v1/?um=constructor%3A6986c1130585e340e2dce3403f26b2263b474503c657f44c41d22014aa54f61f&amp;source=constructor"
+      width="690"
+      height="440"
+      frameborder="0">
+  </iframe>
+</div>

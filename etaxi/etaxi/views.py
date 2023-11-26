@@ -17,7 +17,7 @@ dadata = Dadata(token)
 def geo(request):
     client_ip, is_routable = get_client_ip(request)
     # client_ip = '176.59.144.81' #Новосибирск
-    client_ip = '77.51.199.15' #Mocква, не забыть убрать тестовые IP
+    # client_ip = '77.51.199.15' #Mocква, не забыть убрать тестовые IP
     try:
         response = dadata.iplocate(client_ip)['data']['city']
     except:
@@ -30,9 +30,8 @@ def geo2(request):
     # client_ip = '176.59.144.81' #Novosybirsk
     # client_ip = '77.51.199.15' #Moskow
     client_ip = '183.56.207.190' #Пекин, не забыть убрать тестовые IP
-    if client_ip is not None:
-        g = GeoIP2()
     try:
+        g = GeoIP2()
         # location = g.city(client_ip)['city']
         location = g.city(client_ip)
     except:
@@ -80,7 +79,7 @@ def home(request, city='nogeo'):
     else:
         citygeo = CityPark.objects.get(name=city)
         
-        
+    cars = TaxiCar.objects.filter(city=citygeo)
     novalid = None
     if request.method == "POST":
         form = DriverAddForm(request.POST)
@@ -108,7 +107,7 @@ def home(request, city='nogeo'):
         formoffer = DriverAddFormOffer()
         
     context = {'cities': cities, 'form': form, 
-               'formoffer': formoffer, 'novalid': novalid, 'citygeo': citygeo}
+               'formoffer': formoffer, 'novalid': novalid, 'citygeo': citygeo, 'cars':cars}
    
     return render(request, 'index.html', context)
 
@@ -117,6 +116,8 @@ def home(request, city='nogeo'):
 def about(request, city):
     cities = CityPark.objects.all()
     citygeo = CityPark.objects.get(name=city)
+    managers = ParkManager.objects.all().order_by('-id')
+    videoabout = VideoAbout.objects.all()
     
     novalid = None
     if request.method == "POST":
@@ -142,7 +143,8 @@ def about(request, city):
     else:
         form = DriverAddForm()
         formquest = DriverAddFormQuest()
-    context = {'form': form, 'novalid': novalid, 'formquest': formquest, 'cities': cities, 'citygeo': citygeo}
+    context = {'form': form, 'novalid': novalid, 'formquest': formquest, 
+               'cities': cities, 'citygeo': citygeo, 'managers': managers, 'videoabout': videoabout,}
     return render(request, 'etaxi/pageAboutUs.html', context)
 
 def contacts(request, city):
