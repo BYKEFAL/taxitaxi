@@ -116,7 +116,7 @@ def home(request, city='nogeo'):
 def about(request, city):
     cities = CityPark.objects.all()
     citygeo = CityPark.objects.get(name=city)
-    managers = ParkManager.objects.all().order_by('-id')
+    managers = ParkManager.objects.all()
     videoabout = VideoAbout.objects.all()
     
     novalid = None

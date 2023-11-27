@@ -1,0 +1,165 @@
+@font-face {
+  font-family: "BlissPro";
+  src: url(../fonts/blisspro_medium.woff2);
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(../fonts/Inter-SemiBold);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FFF;
+  font-family: 'BlissPro';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #222222;
+}
+
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0px 10px;
+}
+
+
+.title {
+  font-family: inherit; 
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 48px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.subtitle {
+  font-family: "Inter";
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 8px;
+}
+
+.text {
+  font-family: inherit; 
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 28px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+
+/*Main*/
+
+.main-contacts__section {
+  display: flex;
+  flex-direction: column;
+  margin: 80px 0;
+}
+
+
+.main {
+  padding: 80px 0;
+}
+
+.main__title-select {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.main__title {
+  /* H1_bold */
+  font-family: "BlissPro", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px; /* 120% */
+}
+
+.header-cityAbout {
+  margin-left: auto;
+  cursor: pointer;
+  padding-right: 4px;
+}
+
+.header-expandMoreAbout {
+  cursor: pointer;
+}
+
+.main-select {
+  margin-right: 20px;
+}
+
+.main__map {
+  margin-bottom: 40px;
+  align-self: end;
+}
+
+.main__contacts {
+  display: flex;
+  flex-direction: column;
+}
+
+.main__contacts-item {
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0;
+}
+
+.district {
+  width: 300px;
+  font-family: "BlissPro", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.main__contacts-address {
+  width: 500px;
+}
+
+.street,
+.opening-hours {
+  font-family: "BlissPro", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 9px;
+}
+
+.howCanIgetTo {
+  font-family: "BlissPro", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  color: #fdb913;
+  text-transform: uppercase;
+}
+
+.contacts-phones {
+  display: flex;
+  flex-direction: column;
+}
+
+.main__contacts-phone {
+  color: #222;
+  font-family: 'BlissPro';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; 
+}
+

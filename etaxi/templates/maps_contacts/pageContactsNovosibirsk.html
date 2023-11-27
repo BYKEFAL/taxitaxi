@@ -1,140 +1,155 @@
 {%load static%}
-      <div class="container">
-        <section class="main-contacts__section" id="contacts">
-          <div class="main__title-select">
-            <h3 class="main__title">Контакты в Новосибирске</h3>
-            <span class="header-cityAbout">Новосибирск</span>
-            <figure class="header-expandMoreAbout">
-                <img src="{%static 'img/expand_more.svg'%}" alt="expand_more">
-            </figure>
-          </div>
-          <div class="main__map">
-            <iframe
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad993f7aaf3db084ca0196908b4301b11878e56fde75f30fb25cdd1818c285424&amp;source=constructor"
-              width="1200" 
-              height="400" 
-              frameborder="0">
-            </iframe>
-          </div>
 
-          <div class="main__contacts">
-            <div class="main__contacts-item">
-              <div class="district">Заельцовский район</div>
-              <div class="main__contacts-address">
-                <div class="street">
-                  ​Красный проспект, 220 к87 (2 этаж)
-                </div>
-                <div class="opening-hours">
-                  Пн-Пт с 9:00 до 18:00 <br>
-                  Сб-Вс с 9:00 до 17:00  
-                </div>
-                <a class="howCanIgetTo" href="#">Как проехать</a>
-              </div>
-              <a class="main__contacts-phone" href="tel:+73832349109">+7 (383) 234‒91‒09</a>
-            </div>
-          </div>
-
-            <div class="main__contacts">
-              <div class="main__contacts-item">
-                <div class="district">Калининский район</div>
-                <div class="main__contacts-address">
-                  <div class="street">
-                    Богдана Хмельницкого, 93 корпус 2 (2 этаж)
-                  </div>
-                  <div class="opening-hours">
-                    Пн-Пт с 9:00 до 18:00 <br>
-                    Сб-Вс с 9:00 до 15:00  
-                  </div>
-                  <a class="howCanIgetTo" href="#">Как проехать</a>
-                </div>
-                <a class="main__contacts-phone" href="tel:+73832349109">+7 (383) 234‒91‒09</a>
-              </div>
-            </div>
-
-              <div class="main__contacts">
-                <div class="main__contacts-item">
-                  <div class="district">Кировский район</div>
-                  <div class="main__contacts-address">
-                    <div class="street">
-                      Петухова, 67​, 112 офис (1 этаж)
-                    </div>
-                    <div class="opening-hours">
-                      Пн-Пт с 9:00 до 18:00 <br>
-                      Сб-Вс с 9:00 до 15:00  
-                    </div>
-                    <a class="howCanIgetTo" href="#">Как проехать</a>
-                  </div>
-                  <a class="main__contacts-phone" href="tel:+73832349015">+7 (383) 234‒90‒15</a>
-                </div>
+   <section class="main-contacts__section" id="contacts">
+     <div class="main__title-select">
+       <h3 class="main__title">Контакты в Новосибирске</h3>
+       <div class="dropDown-contacts">
+              <div class="dropDown-contacts-selectCity">
+                  <div class="dropDown-contacts-city">Новосибирск</div>
+                    <figure class="dropDown-contacts-img-down">
+                      <img src="{%static 'img/expand_more.svg'%}" alt="expand more">
+                    </figure>
+                    <figure class="dropDown-contacts-img-up">
+                      <img src="{%static 'img/expand_more_up.svg'%}" alt="expand more">
+                    </figure>
               </div>
 
-              <div class="main__contacts">
-                <div class="main__contacts-item">
-                  <div class="district">Ленинский район</div>
-                  <div class="main__contacts-address">
-                    <div class="street">
-                      Станционная, 39​ (2 этаж)
-                    </div>
-                    <div class="opening-hours">
-                      Пн-Пт с 9:00 до 18:00 <br>
-                      Сб-Вс с 9:00 до 15:00  
-                    </div>
-                    <a class="howCanIgetTo" href="#">Как проехать</a>
-                  </div>
-                  <a class="main__contacts-phone" href="tel:+73832349129">+7 (383) 234‒91‒29</a>
-                </div>
+              <div class="dropDown-contacts-list">
+                    {%for city in cities%}
+                      <a class="dropDown-contacts__item" href="{% url 'etaxi:contacts' city.name %}">{{city.name}}</a>
+                    {%endfor%}
               </div>
-
-              <div class="main__contacts">
-                <div class="main__contacts-item">
-                  <div class="district">Октябрьский район</div>
-                  <div class="main__contacts-address">
-                    <div class="street">
-                      ​Федосеева, 8​ (-1 этаж)
-                    </div>
-                    <div class="opening-hours">
-                      Пн-Пт с 9:00 до 18:00 <br>
-                      Сб-Вс с 10:00 до 15:00  
-                    </div>
-                    <a class="howCanIgetTo" href="#">Как проехать</a>
-                  </div>
-                  <a class="main__contacts-phone" href="tel:+73832349430">+7 (383) 234‒94‒30</a>
-                </div>
-              </div>
-
-              <div class="main__contacts">
-                <div class="main__contacts-item">
-                  <div class="district">Октябрьский район</div>
-                  <div class="main__contacts-address">
-                    <div class="street">
-                      ​Карла Либкнехта, 125​, 203 офис (2 этаж)
-                    </div>
-                    <div class="opening-hours">
-                      Пн-Пт с 9:00 до 18:00 <br>
-                      Сб-Вс с 10:00 до 16:00  
-                    </div>
-                    <a class="howCanIgetTo" href="#">Как проехать</a>
-                  </div>
-                  <a class="main__contacts-phone" href="tel:+73832349390">+7 (383) 234‒93‒90</a>
-                </div>
-              </div>
-
-              <div class="main__contacts">
-                <div class="main__contacts-item">
-                  <div class="district">Первомайский район</div>
-                  <div class="main__contacts-address">
-                    <div class="street">
-                      ​Приграничная, 1​ (3 этаж)
-                    </div>
-                    <div class="opening-hours">
-                      Пн-Пт с 9:00 до 18:00 <br>
-                      Сб-Вс с 9:00 до 16:00  
-                    </div>
-                    <a class="howCanIgetTo" href="#">Как проехать</a>
-                  </div>
-                  <a class="main__contacts-phone" href="tel:+73832349177">+7 (383) 234‒91‒77</a>
-                </div>
-              </div>
-          </div>
-        </section>
+        </div>
       </div>
+
+
+    <!-- вот отсюда код меняем карты и адресов -->
+    
+    <div class="main__map">
+      <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad993f7aaf3db084ca0196908b4301b11878e56fde75f30fb25cdd1818c285424&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>          
+    </div>  
+    <div class="main__contacts">
+
+      <div class="main__contacts-item">
+        <div class="district">Заельцовский район</div>
+        <div class="main__contacts-address">
+          <div class="street">
+            ​Красный проспект, 220 к87 (2 этаж)
+          </div>
+          <div class="opening-hours">
+            Пн-Пт с 9:00 до 18:00 <br>
+            Сб-Вс с 9:00 до 17:00  
+          </div>
+          <a class="mobile-version" href="tel:+73832349109">+7 (383) 234‒91‒09</a>
+        </div>
+        <a class="main__contacts-phone" href="tel:+73832349109">+7 (383) 234‒91‒09</a>
+      </div>
+    </div>
+
+      <div class="main__contacts">
+        <div class="main__contacts-item">
+          <div class="district">Калининский район</div>
+          <div class="main__contacts-address">
+            <div class="street">
+              Богдана Хмельницкого, 93 корпус 2 (2 этаж)
+            </div>
+            <div class="opening-hours">
+              Пн-Пт с 9:00 до 18:00 <br>
+              Сб-Вс с 9:00 до 15:00  
+            </div>
+            <a class="mobile-version" href="tel:+73832349109">+7 (383) 234‒91‒09</a>
+          </div>
+          <a class="main__contacts-phone" href="tel:+73832349109">+7 (383) 234‒91‒09</a>
+        </div>
+      </div>
+
+        <div class="main__contacts">
+          <div class="main__contacts-item">
+            <div class="district">Кировский район</div>
+            <div class="main__contacts-address">
+              <div class="street">
+                Петухова, 67​, 112 офис (1 этаж)
+              </div>
+              <div class="opening-hours">
+                Пн-Пт с 9:00 до 18:00 <br>
+                Сб-Вс с 9:00 до 15:00  
+              </div>
+              <a class="mobile-version" href="tel:+73832349015">+7 (383) 234‒90‒15</a>
+            </div>
+            <a class="main__contacts-phone" href="tel:+73832349015">+7 (383) 234‒90‒15</a>
+          </div>
+        </div>
+
+        <div class="main__contacts">
+          <div class="main__contacts-item">
+            <div class="district">Ленинский район</div>
+            <div class="main__contacts-address">
+              <div class="street">
+                Станционная, 39​ (2 этаж)
+              </div>
+              <div class="opening-hours">
+                Пн-Пт с 9:00 до 18:00 <br>
+                Сб-Вс с 9:00 до 15:00  
+              </div>
+              <a class="mobile-version" href="tel:+73832349129">+7 (383) 234‒91‒29</a>
+            </div>
+            <a class="main__contacts-phone" href="tel:+73832349129">+7 (383) 234‒91‒29</a>
+          </div>
+        </div>
+
+        <div class="main__contacts">
+          <div class="main__contacts-item">
+            <div class="district">Октябрьский район</div>
+            <div class="main__contacts-address">
+              <div class="street">
+                ​Федосеева, 8​ (-1 этаж)
+              </div>
+              <div class="opening-hours">
+                Пн-Пт с 9:00 до 18:00 <br>
+                Сб-Вс с 10:00 до 15:00  
+              </div>
+              <a class="mobile-version" href="tel:+73832349430">+7 (383) 234‒94‒30</a>
+            </div>
+            <a class="main__contacts-phone" href="tel:+73832349430">+7 (383) 234‒94‒30</a>
+          </div>
+        </div>
+
+        <div class="main__contacts">
+          <div class="main__contacts-item">
+            <div class="district">Октябрьский район</div>
+            <div class="main__contacts-address">
+              <div class="street">
+                ​Карла Либкнехта, 125​, 203 офис (2 этаж)
+              </div>
+              <div class="opening-hours">
+                Пн-Пт с 9:00 до 18:00 <br>
+                Сб-Вс с 10:00 до 16:00  
+              </div>
+              <a class="mobile-version" href="tel:+73832349390">+7 (383) 234‒93‒90</a>
+            </div>
+            <a class="main__contacts-phone" href="tel:+73832349390">+7 (383) 234‒93‒90</a>
+          </div>
+        </div>
+
+        <div class="main__contacts">
+          <div class="main__contacts-item">
+            <div class="district">Первомайский район</div>
+            <div class="main__contacts-address">
+              <div class="street">
+                ​Приграничная, 1​ (3 этаж)
+              </div>
+              <div class="opening-hours">
+                Пн-Пт с 9:00 до 18:00 <br>
+                Сб-Вс с 9:00 до 16:00  
+              </div>
+              <a class="mobile-version" href="tel:+73832349177">+7 (383) 234‒91‒77</a>
+            </div>
+
+            <a class="main__contacts-phone" href="tel:+73832349177">+7 (383) 234‒91‒77</a>
+          </div>
+        </div>
+
+                <!-- вот досюда код меняем карты и адресов -->
+
+    </div>
+  </section>

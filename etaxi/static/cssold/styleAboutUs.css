@@ -1,0 +1,668 @@
+.aboutUs {
+  padding: 80px 0;
+}
+
+.main__title {
+  font-family: "BlissPro", sans-serif;
+  text-align: center;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  margin-bottom: 24px;
+}
+
+.main__video-slogan {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  object-fit: cover;
+}
+
+.main__video-slogan video {
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.slogan__container {
+  width: 530px;
+}
+
+.slogan__container-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.slogan__container-title img {
+  width: 55px;
+  height: 48px;
+}
+
+.slogan__container-title h2 {
+  font-family: "BlissPro", sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  text-align: right;
+  margin: 5px;
+}
+
+.slogan__container-text {
+  margin-top: -20px;
+}
+
+.slogan__container-text h3 {
+  font-family: "BlissPro", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.slogan__container-text p {
+  font-family: "BlissPro", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.slogan__container-text img {
+  width: 55px;
+  height: 48px;
+  margin-left: 415px;
+}
+
+.slogan__container-title-yellow {
+  color: #fdb913;
+  font-family: "BlissPro";
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 110%;
+  text-align: end;
+  letter-spacing: 0.3px;
+  margin-bottom: 29px;
+}
+
+.slogan__container-text h3 {
+  font-family: "Bliss Pro", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.slogan__container-text p {
+  font-family: "Bliss Pro", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.slogan__container-text img {
+  width: 55px;
+  height: 48px;
+  margin-left: 470px;
+}
+
+.ourTeam {
+  padding: 0;
+  width: 1200px;
+  height: 923px;
+  margin-bottom: 80px;
+}
+
+.ourTeam__title {
+  font-family: "Bliss Pro", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  margin: 0 0 40px 470px;
+  width: 290px;
+  height: 48px;
+}
+
+.footer-inner {
+  margin: 32px 0;
+}
+.footer-up {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-logo__img {
+  width: 40px;
+  height: 50px;
+}
+
+.footer-phone-social {
+  display: flex;
+  align-items: center;
+}
+
+.footer-phone {
+  font-family: "Bliss Pro", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  margin-right: 24px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 16px;
+}
+
+.footer__down {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright,
+.privacy-policy {
+  color: #aaa;
+  font-family: "Bliss Pro", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 18px;
+}
+
+.slider-wrapper {
+  width: 1180px;
+  height: 730px;
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  /* position: absolute; */
+  /* left: 350px; */
+}
+
+.slider-line {
+  display: flex;
+  position: relative;
+  left: 0px;
+}
+
+.projectSlider {
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-next {
+  margin-right: 24px;
+}
+
+.button-prev,
+.button-next {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: none;
+}
+
+.dots-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dot {
+  display: none;
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: grey;
+  border-radius: 50%;
+  /* display: inline-block; */
+}
+
+/* .active-dot {
+  background-color: rgb(212, 207, 207);
+} */
+
+.link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.active-link {
+  text-decoration: underline;
+  color: #e3b873;
+}
+
+/* =============================================== */
+.title {
+  height: 60px;
+  width: 339px;
+  font-size: 23px;
+  color: #ffffff;
+  margin-top: 85px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.textYeseva {
+  font-family: "Yeseva One", cursive;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.textNunito {
+  font-family: "Nunito Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1200px;
+  height: 730px;
+  margin-bottom: 80px;
+}
+
+.section2__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section2__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin-top: 40px;
+}
+
+.section2__top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 1200px;
+  height: 730px;
+}
+
+.card__container {
+  width: 383px;
+  height: 730px;
+  border: 2px solid #aaa;
+  margin-right: 15px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card__img {
+  width: 380px;
+  height: 420px;
+  border-radius: 20px;
+  background: #d6cece;
+}
+
+.card__container h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: start;
+  margin: 30px 0 20px 30px;
+}
+
+.card__container p {
+  font-family: "BlissPro", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: start;
+  margin: 0 0 28px 30px;
+}
+
+.card__img-text {
+  width: 305px;
+  height: 120px;
+}
+
+.work-algorithm {
+  margin-bottom: 80px;
+}
+
+.work-algorithm-inner__title {
+  font-family: "Bliss Pro", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  width: 345px;
+  height: 53px;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.faq {
+  width: 320px;
+  height: 32px;
+  font-family: "Bliss Pro", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  margin: 0 auto 40px;
+}
+
+.faq-list {
+  width: 995px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-radius: 10px;
+  border: 1px solid #b3b3b3;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+.faq-title {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  padding-top: 28px;
+  padding-bottom: 28px;
+  padding-left: 56px;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-title:after {
+  content: "";
+  display: block;
+  border-style: solid;
+  border-width: 15px 12.5px 0 12.5px;
+  border-color: #fdb913 transparent transparent transparent;
+  position: absolute;
+  right: 20px;
+}
+
+.faq-input {
+  width: 0;
+  height: 0;
+  appearance: none;
+  position: absolute;
+}
+
+.faq-input:checked ~ .faq-title:after {
+  border-style: solid;
+  border-width: 0 12.5px 15px 12.5px;
+  border-color: transparent transparent #fdb913 transparent;
+}
+
+.faq-input:checked ~ .faq-text {
+  display: block;
+}
+
+.faq-text {
+  display: none;
+  font-family: "BlissPro", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  /* padding-top: 15px; */
+  padding-bottom: 26px;
+  padding-left: 57px;
+}
+
+.question {
+  padding-top: 80px;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.question-inner__title {
+  font-family: "Bliss Pro", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 48px;
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.question-inner__text {
+  width: 487px;
+  height: 59px;
+  font-family: "Bliss Pro", sans-serif;
+  color: var(--Primary, #fdb913);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  margin-bottom: 13px;
+}
+
+.form__container {
+  width: 500px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.form__group {
+  position: relative;
+}
+
+.form__group-big {
+  position: relative;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  color: #aaa;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  transition: 0.3s;
+}
+
+.form__input {
+  width: 500px;
+  height: 56px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid #cbccce;
+  background: #fff;
+
+  font-family: "Bliss Pro", sans-serif;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+
+  transition: 0.3s;
+  outline: none;
+  margin-bottom: 12px;
+}
+
+.form__input-big {
+  width: 500px;
+  height: 112px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 1px solid #cbccce;
+  background: #fff;
+
+  font-family: "Bliss Pro", sans-serif;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+
+  margin-bottom: 28px;
+  transition: 0.3s;
+  outline: none;
+}
+
+.form__button {
+  width: 500px;
+  height: 56px;
+  display: inline-flex;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: #fdb913;
+
+  font-family: "Bliss Pro", sans-serif;
+  text-align: center;
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.form__button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.question__img {
+  width: 612px;
+  height: 457px;
+  border-radius: 20px;
+  margin-top: 11px;
+  margin-bottom: 40px;
+}
+
+.question-checkbox {
+  width: 500px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.question-checkbox-input {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+}
+
+.question-checkbox-text {
+  width: 450px;
+  height: 32px;
+  font-family: "Bliss Pro", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.checkbox {
+  position: relative;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.checkbox__input {
+  appearance: none;
+  position: absolute;
+}
+
+.checkbox__label {
+  padding-left: 25px;
+  margin-left: 10px;
+  font-size: 1rem;
+  color: #444;
+  cursor: pointer;
+  font-family: "Bliss Pro", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+}
+
+.checkbox__label:before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+
+  border: 1px solid #000;
+  background-color: #fff;
+  border-radius: 3px;
+
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 1;
+
+  transition: background 0.1s linear, border 0.1s linear;
+}
+
+.checkbox__label:after {
+  content: "";
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: url(../icons/icons8.png) no-repeat;
+  background-size: 12px 12px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+
+  opacity: 0;
+
+  transition: opacity 0.1s linear;
+}
+
+.checkbox__input:checked + .checkbox__label:before {
+  background-color: #000;
+  border-color: #000;
+}
+
+.checkbox__input:checked + .checkbox__label:after {
+  opacity: 1;
+}
+
+.container {
+  width: 1200px;
+}

@@ -55,11 +55,13 @@ function closeSlectCity() {
 }
 
 /*Show city on page contacts*/
-const showExpandAbout = document.querySelector(".header-cityAbout");
-const showCityAbout = document.querySelector(".header-expandMoreAbout");
+// const showExpandAbout = document.querySelector(".header-cityAbout");
+// const showCityAbout = document.querySelector(".header-expandMoreAbout");
 
-showExpandAbout.addEventListener("click",showPopUp)
-showCityAbout.addEventListener("click",showPopUp)
+// showExpandAbout.addEventListener("click",showPopUp)
+// showCityAbout.addEventListener("click",showPopUp)
+
+
 
 /*Show-hidden popUp*/
 const popUp = document.querySelector(".popUp");
@@ -84,9 +86,30 @@ function closePopUp() {
 
 
 /*Извлечение города в popUp*/
-const popUpCity = document.querySelector('.popUp-city')
-const popUpList = document.querySelector('.popUp-list').addEventListener('click', e => {
-let content = e.target.innerHTML;
-popUpCity.value = content;
-});
+// const popUpCity = document.querySelector('.popUp-city')
+// const popUpList = document.querySelector('.popUp-list').addEventListener('click', e => {
+// let content = e.target.innerHTML;
+// popUpCity.value = content;
+// });
 
+const dropDownOpenContacts = document.querySelector(".dropDown-contacts-img-down");
+const dropDownCloseContacts = document.querySelector(".dropDown-contacts-img-up");
+const dropDownListContacts = document.querySelector(".dropDown-contacts-list");
+
+dropDownOpenContacts.addEventListener("click",openDropDown)
+
+function openDropDown() {
+  // body.style.overflow =  'hidden';
+  dropDownOpenContacts.style.display = "none";
+  dropDownCloseContacts.style.display = "block";
+  dropDownListContacts.style.display = "block";
+}
+
+dropDownCloseContacts.addEventListener("click",closeDropDown)
+
+function closeDropDown() {
+  // body.style.overflow =  'auto';
+  dropDownCloseContacts.style.display = "none";
+  dropDownOpenContacts.style.display = "block";
+  dropDownListContacts.style.display = "none";
+}

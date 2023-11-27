@@ -1,84 +1,107 @@
 {%load static%}
-      <div class="container">
-        <section class="main-contacts__section" id="contacts">
-          <div class="main__title-select">
-            <h3 class="main__title">Контакты в Новокузнецке</h3>
-            <span class="header-cityAbout">Новокузнецк</span>
-            <figure class="header-expandMoreAbout">
-                <img src="{%static 'img/expand_more.svg'%}" alt="expand_more">
-            </figure>
-          </div>
-          <div class="main__map">
-            <iframe
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3A3769ec1d6481c25fcbf9ce77931678baf57b54d6ebda9780016947fff4dce586&amp;source=constructor"
-              width="1200" 
-              height="400" 
-              frameborder="0">
-            </iframe>
-          </div>
 
-          <div class="main__contacts">
-            <div class="main__contacts-item">
-              <div class="district">Центральный район</div>
-              <div class="main__contacts-address">
-                <div class="street">
-                  ​Рябоконева, 6 к10
-                </div>
-                <div class="opening-hours">
-                  Пн-Пт с 9:00 до 18:00 <br>
-                  Сб-Вс с 10:00 до 17:00  
-                </div>
-                <a class="howCanIgetTo" href="#">Как проехать</a>
-              </div>
-              <a class="main__contacts-phone" href="tel:+73842777454">+7 (3842) 77-74-54</a>
-            </div>
-
-            <div class="main__contacts-item">
-              <div class="district">Ближнее Куйбышево <br>
-                Куйбышевский район</div>
-              <div class="main__contacts-address">
-                <div class="street">
-                  ​Мичурина, 24 к8​ (1 этаж)
-                </div>
-                <div class="opening-hours">
-                  Пн-Пт с 9:00 до 18:00 <br>
-                  Сб-Вс с 10:00 до 14:00
-                </div>
-                <a class="howCanIgetTo" href="#">Как проехать</a>
-              </div>
-              <a class="main__contacts-phone" href="tel:+73842777454">+7 (3842) 77‒74‒54 <br> +7 (3842) 77‒74‒76</a>
-            </div>
-
-            <div class="main__contacts">
-              <div class="main__contacts-item">
-                <div class="district">Центральный район </div>
-                <div class="main__contacts-address">
-                  <div class="street">
-                    ​​Грдины, 35 ​211 помещение (2 этаж)
-                  </div>
-                  <div class="opening-hours">
-                    Пн-Вс с 9:00 до 18:00  
-                  </div>
-                  <a class="howCanIgetTo" href="#">Как проехать</a>
-                </div>
-                <a class="main__contacts-phone" href="tel:+73842777454">+7 (3842) 77‒74‒54 <br>
-                  +7 (3842) 77‒74‒81</a>
+   <section class="main-contacts__section" id="contacts">
+     <div class="main__title-select">
+       <h3 class="main__title">Контакты в Новокузнецке</h3>
+       <div class="dropDown-contacts">
+              <div class="dropDown-contacts-selectCity">
+                  <div class="dropDown-contacts-city">Новокузнецк</div>
+                    <figure class="dropDown-contacts-img-down">
+                      <img src="{%static 'img/expand_more.svg'%}" alt="expand more">
+                    </figure>
+                    <figure class="dropDown-contacts-img-up">
+                      <img src="{%static 'img/expand_more_up.svg'%}" alt="expand more">
+                    </figure>
               </div>
 
-              <div class="main__contacts-item">
-                <div class="district">Кузнецкий район</div>
-                <div class="main__contacts-address">
-                  <div class="street">
-                    ​​Ленина, 33г
-                  </div>
-                  <div class="opening-hours">
-                    Пн-Вс с 9:00 до 18:00 
-                  </div>
-                  <a class="howCanIgetTo" href="#">Как проехать</a>
-                </div>
-                <a class="main__contacts-phone" href="tel:+73842777454">+7 (3842) 77-74-54</a>
+              <div class="dropDown-contacts-list">
+                    {%for city in cities%}
+                      <a class="dropDown-contacts__item" href="{% url 'etaxi:contacts' city.name %}">{{city.name}}</a>
+                    {%endfor%}
               </div>
-
-          </div>
-        </section>
+        </div>
       </div>
+
+
+    <!-- вот отсюда код меняем карты и адресов -->
+    
+    <div class="main__map">
+      <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3769ec1d6481c25fcbf9ce77931678baf57b54d6ebda9780016947fff4dce586&amp;width=100%&amp;height=1%00&amp;lang=ru_RU&amp;scroll=true"></script>          
+    </div>  
+    <div class="main__contacts">
+
+      <div class="main__contacts-item">
+        <div class="district"> Центральный район</div>
+        <div class="main__contacts-address">
+          <div class="street">
+            ​Рябоконева, 6 к10
+          </div>
+          <div class="opening-hours">
+            Пн-Пт с 9:00 до 18:00 <br>
+            Сб-Вс с 10:00 до 17:00  
+          </div>
+          <a class="mobile-version" href="tel:+73842777454">+7 (3842) 77-74-54</a>
+        </div>
+        <a class="main__contacts-phone" href="tel:+73842777454">+7 (3842) 77-74-54</a>
+      </div>
+
+      <div class="main__contacts-item">
+        <div class="district"> <span>Ближнее Куйбышево</span> Куйбышевский район</div>
+        <div class="main__contacts-address">
+          <div class="street">
+            ​Мичурина, 24 к8​ (1 этаж)
+          </div>
+          <div class="opening-hours">
+            Пн-Пт с 9:00 до 18:00 <br>
+            Сб-Вс с 10:00 до 14:00
+          </div>
+          <a class="mobile-version" href="tel:+73842777454">+7 (3842) 77‒74‒54</a>
+          <a class="mobile-version" href="tel:+73842777476">+7 (3842) 77‒74‒76</a>
+        </div>
+
+        <div class="contacts-phones">
+          <a class="main__contacts-phone" href="tel:+73842777454">+7 (3842) 77‒74‒54</a>
+          <a class="main__contacts-phone" href="tel:+73842777476">+7 (3842) 77‒74‒76</a>
+        </div>
+
+      </div>
+
+      <div class="main__contacts">
+        <div class="main__contacts-item">
+          <div class="district">Центральный район </div>
+          <div class="main__contacts-address">
+            <div class="street">
+              ​​Грдины, 35 ​211 помещение (2 этаж)
+            </div>
+            <div class="opening-hours">
+              Пн-Вс с 9:00 до 18:00  
+            </div>
+            <a class="mobile-version" href="tel:+73842777454">+7 (3842) 77‒74‒54</a>
+            <a class="mobile-version" href="tel:+73842777476">+7 (3842) 77‒74‒76</a>
+          </div>
+
+            <div class="contacts-phones">
+              <a class="main__contacts-phone" href="tel:+73842777454">+7 (3842) 77‒74‒54</a>
+              <a class="main__contacts-phone" href="tel:+73842777476">+7 (3842) 77‒74‒76</a>
+            </div>
+
+        </div>
+
+        <div class="main__contacts-item">
+          <div class="district">Кузнецкий район</div>
+          <div class="main__contacts-address">
+            <div class="street">
+              ​​Ленина, 33г
+            </div>
+            <div class="opening-hours">
+              Пн-Вс с 9:00 до 18:00 
+            </div>
+            <a class="mobile-version" href="tel:+73842777454">+7 (3842) 77-74-54</a>
+          </div>
+          <a class="main__contacts-phone" href="tel:+73842777454">+7 (3842) 77-74-54</a>
+        </div>
+
+                <!-- вот досюда код меняем карты и адресов -->
+
+    </div>
+  </section>

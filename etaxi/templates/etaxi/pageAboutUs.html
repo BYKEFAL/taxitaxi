@@ -16,7 +16,7 @@ Etaxi About
 {% block changeCity %}
 {% if novalid %}
 <script defer src="{%static 'js/applicationApp.js'%}"></script>
-<form class="application-form" style="display: flex; margin-bottom: 10vh; top:35%;" action="" method="POST" id="reg-form">
+<form class="application-form" style="display: flex; margin-bottom: 10vh;" action="" method="POST" id="reg-form">
 {% else %}
 <form class="application-form" action="" method="POST" id="reg-form">
 {% endif %}
@@ -63,6 +63,13 @@ Etaxi About
 
 {% block page %}
   <div class="container">
+
+    <div class="return">
+      <a class="returnToMainPage" href="{% url 'etaxi:homecity' citygeo.name %}">Главная</a>
+      <span>/</span>
+      <span class="pageAbout">О нас</span>
+    </div>
+
     <section class="aboutUs">
         <h3 class="main__title">О нас</h3>
         <div class="main__video-slogan">
@@ -145,61 +152,115 @@ Etaxi About
       </div>
     </div>
     </section>
-    <section class="work-algorithm">
-        <div class="work-algorithm-inner">
-          <h3 class="work-algorithm-inner__title">Как мы работаем</h3>
-          <p class="faq">Часто задаваемые вопросы</p>
-          
-          <div class="faq-list">
 
-            <div class="faq-item">
-              <input class="faq-input" type="checkbox" id="faq_1">
-              <label class="faq-title" for="faq_1">Сроки аренды </label>
-              <div class="faq-text">
-                <p>Ответ на вопрос <br> Сроки аренды</p>
-              </div>
-            </div>
+    <!-- ======================================================================================================= -->
 
-            <div class="faq-item">
-              <input class="faq-input" type="checkbox" id="faq_2">
-              <label class="faq-title" for="faq_2">Возможен ли карьерный рост?</label>
-              <div class="faq-text">
-                <p>Ответ на вопрос <br> Возможен ли карьерный рост?</p>
-              </div>
-            </div>
+<!-- слайдер для версии tablet  -->
+<!-- начало -->
+<section class="ourTeam-tablet">
+  <h3 class="main__title-tablet">Наша команда</h3>
+  
+  <div class="section2-tablet">
+    <div class="section2__inner-tablet">
+      <div class="section2__top-tablet">
+        <div class="section2__container-tablet">
+          <div class="slider-wrapper-tablet">
+            <div class="slider-line-tablet">
 
-            <div class="faq-item">
-              <input class="faq-input" type="checkbox" id="faq_3">
-              <label class="faq-title" for="faq_3">Есть ли первоначальный взнос/залог?</label>
-              <div class="faq-text">
-                <p>Ответ на вопрос <br> Есть ли первоначальный взнос/залог?</p>
-              </div>
-            </div>
+              {%for manager in managers%}
+                  <div class="card-tablet">
+                    <div class="card__container-tablet">
+                      <img class="card__img-tablet" src="{{manager.image.url}}" alt="man">
+                      <h2>{{manager.lastName}}<br> 
+                       {{manager.firstName}} {%if manager.thirdName%} {{manager.thirdName}} {%endif%} </h2>
+                      <p>{{manager.position}}</p>
+                      <p class="card__img-text-tablet">{{manager.discription}}</p>
+                    </div>
+                  </div>
+              {%endfor%}
 
-            <div class="faq-item">
-              <input class="faq-input" type="checkbox" id="faq_4">
-              <label class="faq-title" for="faq_4">Количество заказов</label>
-              <div class="faq-text">
-                <p>Ответ на вопрос <br> Количество заказов</p>
-              </div>
-            </div>
-
-            <div class="faq-item">
-              <input class="faq-input" type="checkbox" id="faq_5">
-              <label class="faq-title" for="faq_5">Какие есть графики работы?</label>
-              <div class="faq-text">
-                <p>Мы предоставляем несколько графиков на выбор:<br>
-                  2/2, 3/3, 6/1 и др  </p>
-              </div>
             </div>
           </div>
         </div>
-    </section>
+      </div>
+      <div class="section2__nav-tablet">
+        <div class="projectSlider-tablet">
+          <button class="button-prev-tablet">
+            <img src="{%static 'img/btn-arrow-left.svg'%}" alt="arrowLeft" />
+          </button>
+          <div class="dots-wrapper-tablet">
+            <div class="dot active-dot-tablet"></div>
+            <div class="dot-tablet"></div>
+            <div class="dot-tablet"></div>
+          </div>
+          <button class="button-next-tablet">
+            <img src="{%static 'img/btn-arrow-right.svg'%}" alt="arrowRight" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+        </section>
+  <!-- ======================================================================================================= -->
+  <!-- слайдер для версии tablet  -->
+  <!-- окончание -->
+
+    <section class="work-algorithm">
+      <div class="work-algorithm-inner">
+        <h3 class="main__title title-work">Как мы работаем</h3>
+        <p class="faq">Часто задаваемые вопросы</p>
+        
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <input class="faq-input" type="checkbox" id="faq_1">
+            <label class="faq-title" for="faq_1">Есть ли помощь на дорогах?</label>
+            <div class="faq-text">
+              <p>От нашей службы безопасности. Вам ответят по телефону, а если возникнут затруднения ‒ <br> приедут на место</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <input class="faq-input" type="checkbox" id="faq_2">
+            <label class="faq-title" for="faq_2">Возможен ли карьерный рост?</label>
+            <div class="faq-text">
+              <p>Водитель → менеджер → руководитель. Более ⅓ менеджеров ‒ бывшие водители</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <input class="faq-input" type="checkbox" id="faq_3">
+            <label class="faq-title" for="faq_3">Есть ли выкуп автомобиля?</label>
+            <div class="faq-text">
+              <p>На данный момент нет такой услуги</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <input class="faq-input" type="checkbox" id="faq_4">
+            <label class="faq-title" for="faq_4">Существует ли какая-то гарантия заказов?</label>
+            <div class="faq-text">
+              <p>У вас будут заказы даже когда их мало. Мы являемся крупнейшим партнёром Яндекс Такси</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <input class="faq-input" type="checkbox" id="faq_5">
+            <label class="faq-title" for="faq_5">Какие есть графики работы?</label>
+            <div class="faq-text">
+              <p>Мы предоставляем несколько графиков на выбор:<br>
+                Мы можем предоставить вам на выбор один из графиков: 2/2, 3/3, 6/1 и др. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
     <section class="question">
     <div class="question-inner">
       <h3 class="question-inner__title">Остались вопросы?</h3>
       <p class="question-inner__text">Отправьте нам свой вопрос и получите <br> бесплатную консультацию</p>
-      
+      <img class="question__img-mobile" src="{%static 'img/question-img-mobile.jpg'%}" alt="questionImgMobile">
       <div class="form__container">
         
         <form action="" class="form" method="POST">
@@ -226,11 +287,11 @@ Etaxi About
             <label class="application-checkbox" for="question">Подтверждаю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</label>
           </div>
         </form>
-
       </div>
     </div>
     <img class="question__img" src="{%static 'img/question-img.jpg'%}" alt="questionImg">
-    </section>
+    <img class="question__img-tablet" src="{%static 'img/question-img-mobile.jpg'%}" alt="questionImgTablet">  
+  </section>
   </div>
 {% endblock page %}
 

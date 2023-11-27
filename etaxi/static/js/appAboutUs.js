@@ -12,7 +12,7 @@ let dotIndex = 0;
 let linkIndex = dotIndex;
 
 const nextSlide = () => {
-  if (position < (dots.length - 1) * 398) {
+  if (position < (11 - 1) * 398) {
     position += 398;
   } else {
     position = 0;
@@ -39,7 +39,7 @@ const prevSlide = () => {
   if (position > 0) {
     position -= 398;
   } else {
-    position = (dots.length - 1) * 398;
+    position = (11 - 1) * 398;
   }
   sliderLine.style.left = -position + "px";
   thisSlide(dotIndex);
@@ -81,38 +81,96 @@ nextButton.addEventListener("click", nextSlideText);
 prevButton.addEventListener("click", prevSlide);
 prevButton.addEventListener("click", prevSlideText);
 
-// dots.forEach((dot, index) => {
-//   dot.addEventListener("click", () => {
-//     position = 680 * index;
-//     positionText = 440 * index;
-//     sliderLine.style.left = -position + "px";
-//     sliderLineText.style.left = -positionText + "px";
-//     dotIndex = index;
-//     thisSlide(dotIndex);
-//     thisLink(index);
-//   });
-// });
+// слайдер для страницы О нас, версия tablet
+const sliderLineTablet = document.querySelector(".slider-line-tablet");
 
-// links.forEach((link, index) => {
-//   link.addEventListener("click", () => {
-//     position = 680 * index;
-//     positionText = 440 * index;
-//     sliderLine.style.left = -position + "px";
-//     sliderLineText.style.left = -positionText + "px";
-//     linkIndex = index;
-//     thisLink(linkIndex);
-//     thisSlide(index);
-//   });
-// });
+const nextButtonTablet = document.querySelector(".button-next-tablet");
+const prevButtonTablet = document.querySelector(".button-prev-tablet");
+const dotsTablet = document.querySelectorAll(".dot-tablet");
+
+let positionTablet = 0;
+let positionTextTablet = 0;
+let dotIndexTablet = 0;
+let linkIndexTablet = dotIndexTablet;
+
+const nextSlideTablet = () => {
+  if (position < (11 - 1) * 229) {
+    position += 229;
+  } else {
+    position = 0;
+  }
+  sliderLineTablet.style.left = -position + "px";
+};
+
+const nextSlideTextTablet = () => {
+  if (positionTextTablet < 880) {
+    positionTextTablet += 440;
+    dotIndexTablet++;
+    linkIndexTablet++;
+  } else {
+    positionTextTablet = 0;
+    dotIndexTablet = 0;
+    linkIndexTablet = 0;
+  }
+  sliderLineTextTablet.style.left = -positionText + "px";
+  thisSlide(dotIndexTablet);
+  thisLink(linkIndexTablet);
+};
+
+const prevSlideTablet = () => {
+  if (position > 0) {
+    position -= 229;
+  } else {
+    position = (11 - 1) * 229;
+  }
+  sliderLineTablet.style.left = -position + "px";
+  thisSlide(dotIndexTablet);
+  thisLink(linkIndexTablet);
+};
+
+const prevSlideTextTablet = () => {
+  if (positionText > 0) {
+    positionText -= 440;
+    dotIndexTablet--;
+    linkIndexTablet--;
+  } else {
+    positionTextTablet = 880;
+    dotIndexTablet = dotsTablet.length - 1;
+    linkIndexTablet = links.length - 1;
+  }
+  sliderLineText.style.left = -positionText + "px";
+  thisSlide(dotIndex);
+  thisLink(linkIndex);
+};
+
+const thisSlideTablet = (index) => {
+  for (let dotTablet of dotsTablet) {
+    dotTablet.classList.remove("active-dot");
+  }
+  dotsTablet[index].classList.add("active-dot");
+};
+
+// const thisLink = (index) => {
+//   for (let link of links) {
+//     link.classList.remove("active-link");
+//   }
+//   links[index].classList.add("active-link");
+// };
+
+nextButtonTablet.addEventListener("click", nextSlideTablet);
+nextButtonTablet.addEventListener("click", nextSlideTextTablet);
+
+prevButtonTablet.addEventListener("click", prevSlideTablet);
+prevButtonTablet.addEventListener("click", prevSlideTextTablet);
 
 /*Кастомный селект*/
 
-const element = document.querySelector(".main-select");
-const choices = new Choices(element, {
-  searchEnabled: false,
-  itemSelectText: "",
-  noResultsText: "По Вашему запросу ничего не найдено",
-});
+// const element = document.querySelector(".main-select");
+// const choices = new Choices(element, {
+//   searchEnabled: false,
+//   itemSelectText: "",
+//   noResultsText: "По Вашему запросу ничего не найдено",
+// });
 
 /*Show-hidden mainForm*/
 const showButtonHeader = document.querySelector(".header-nav__button");

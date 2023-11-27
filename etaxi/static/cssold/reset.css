@@ -45,9 +45,5 @@ table {
 a
 {
 	text-decoration: none;
-}
-
-ul.errorlist{
-	color: red;
-	margin-bottom: 2%;
+	color: #000000;
 }

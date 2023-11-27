@@ -6,11 +6,16 @@
 Etaxi Contacts
 {% endblock title %}
 
+{%block styleContact%}
+<link rel="stylesheet" href="{% static 'css/styleContacts.css'%}">
+{%endblock styleContact%}
+
+
 
 {%block changeCity%}
 {%if novalid%}
 <script defer src="{%static 'js/applicationApp.js'%}"></script>
-<form class="application-form" style="display: flex; margin-bottom: 10vh; top:35%;" action="" method="POST" id="reg-form">
+<form class="application-form" style="display: flex; margin-bottom: 10vh;" action="" method="POST" id="reg-form">
 {%else%}
 <form class="application-form" action="" method="POST" id="reg-form">
 {%endif%}
@@ -57,32 +62,40 @@ Etaxi Contacts
 
 {% block page %}
 
-{% if citygeo.name == 'Барнаул' %}
-    {% include 'maps_contacts/pageContactsBarnaul.html' %}
-{% elif citygeo.name == 'Екатеринбург' %}
-    {% include 'maps_contacts/pageContactsEkaterinburg.html' %} 
-{% elif citygeo.name == 'Иркутск' %}
-    {% include 'maps_contacts/pageContactsIrkutsk.html' %}
-{% elif citygeo.name == 'Кемерово' %}
-    {% include 'maps_contacts/pageContactsKemerovo.html' %}
-{% elif citygeo.name == 'Красноярск' %}
-    {% include 'maps_contacts/pageContactsKrasnoiarsk.html' %}
-{% elif citygeo.name == 'Новокузнецк' %}
-    {% include 'maps_contacts/pageContactsNovokuznetsk.html' %}
-{% elif citygeo.name == 'Новосибирск' %}
-    {% include 'maps_contacts/pageContactsNovosibirsk.html' %}
-{% elif citygeo.name == 'Омск' %}
-    {% include 'maps_contacts/pageContactsOmsk.html' %}
-{% elif citygeo.name == 'Томск' %}
-    {% include 'maps_contacts/pageContactsTomsk.html' %}
-{% elif citygeo.name == 'Тюмень' %}
-    {% include 'maps_contacts/pageContactsTumen.html' %}
-{% elif citygeo.name == 'Улан-Удэ' %}
-    {% include 'maps_contacts/pageContactsUlanUde.html' %}
-{%endif%}
+    <div class="container">
+        <div class="return">
+            <a class="returnToMainPage" href="{% url 'etaxi:homecity' citygeo.name %}">Главная</a>
+            <span>/</span>
+            <span class="pageContact">Контакты</span>
+        </div>
+
+        {% if citygeo.name == 'Барнаул' %}
+            {% include 'maps_contacts/pageContactsBarnaul.html' %}
+        {% elif citygeo.name == 'Екатеринбург' %}
+            {% include 'maps_contacts/pageContactsEkaterinburg.html' %} 
+        {% elif citygeo.name == 'Иркутск' %}
+            {% include 'maps_contacts/pageContactsIrkutsk.html' %}
+        {% elif citygeo.name == 'Кемерово' %}
+            {% include 'maps_contacts/pageContactsKemerovo.html' %}
+        {% elif citygeo.name == 'Красноярск' %}
+            {% include 'maps_contacts/pageContactsKrasnoiarsk.html' %}
+        {% elif citygeo.name == 'Новокузнецк' %}
+            {% include 'maps_contacts/pageContactsNovokuznetsk.html' %}
+        {% elif citygeo.name == 'Новосибирск' %}
+            {% include 'maps_contacts/pageContactsNovosibirsk.html' %}
+        {% elif citygeo.name == 'Омск' %}
+            {% include 'maps_contacts/pageContactsOmsk.html' %}
+        {% elif citygeo.name == 'Томск' %}
+            {% include 'maps_contacts/pageContactsTomsk.html' %}
+        {% elif citygeo.name == 'Тюмень' %}
+            {% include 'maps_contacts/pageContactsTumen.html' %}
+        {% elif citygeo.name == 'Улан-Удэ' %}
+            {% include 'maps_contacts/pageContactsUlanUde.html' %}
+        {%endif%}
+    </div>
 
 {% endblock page %}
 
 {% block script %}
-  <script src="{%static 'js/appContacts.js'%}"></script>
+  <script defer src="{%static 'js/appContacts.js'%}"></script>
 {% endblock script %}

@@ -1,53 +1,66 @@
-      {% load static %}
-      <div class="container">
-        <section class="main-contacts__section" id="contacts">
-          <div class="main__title-select">
-            <h3 class="main__title">Контакты в Барнауле</h3>
-            <span class="header-cityAbout">Барнаул</span>
-            <figure class="header-expandMoreAbout">
-                <img src="{%static 'img/expand_more.svg'%}" alt="expand_more">
-            </figure>
-          </div>
-          <div class="main__map">
-            <iframe
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3A6986c1130585e340e2dce3403f26b2263b474503c657f44c41d22014aa54f61f&amp;source=constructor"
-              width="1200" 
-              height="400" 
-              frameborder="0">
-            </iframe>
-          </div>
+{%load static%}
 
-          <div class="main__contacts">
-            <div class="main__contacts-item">
-              <div class="district">Индустриальный район</div>
-              <div class="main__contacts-address">
-                <div class="street">
-                  ​Павловский тракт, 198е
-                </div>
-                <div class="opening-hours">
-                  Пн-Пт с 9:00 до 18:00 <br>
-                  Сб-Вс с 10:00 до 16:00  
-                </div>
-                <a class="howCanIgetTo" href="#">Как проехать</a>
+   <section class="main-contacts__section" id="contacts">
+     <div class="main__title-select">
+       <h3 class="main__title">Контакты в Барнауле</h3>
+       <div class="dropDown-contacts">
+              <div class="dropDown-contacts-selectCity">
+                  <div class="dropDown-contacts-city">Барнаул</div>
+                    <figure class="dropDown-contacts-img-down">
+                      <img src="{%static 'img/expand_more.svg'%}" alt="expand more">
+                    </figure>
+                    <figure class="dropDown-contacts-img-up">
+                      <img src="{%static 'img/expand_more_up.svg'%}" alt="expand more">
+                    </figure>
               </div>
-              <a class="main__contacts-phone" href="tel:+73852224164">+7(3852) 22-41-64</a>
-            </div>
 
-            <div class="main__contacts-item">
-              <div class="district">Поток м-н<br>Октябрьский район</div>
-              <div class="main__contacts-address">
-                <div class="street">
-                  ​Тимуровская, 74
-                </div>
-                <div class="opening-hours">
-                  Пн-Пт с 9:00 до 18:00 <br>
-                  Сб-Вс с 10:00 до 14:00
-                </div>
-                <a class="howCanIgetTo" href="#">Как проехать</a>
+              <div class="dropDown-contacts-list">
+                    {%for city in cities%}
+                      <a class="dropDown-contacts__item" href="{% url 'etaxi:contacts' city.name %}">{{city.name}}</a>
+                    {%endfor%}
               </div>
-              <a class="main__contacts-phone" href="tel:+73852224164">+7(3852) 22-41-64</a>
-            </div>
-
-          </div>
-        </section>
+        </div>
       </div>
+
+
+    <!-- вот отсюда код меняем карты и адресов -->
+    
+    <div class="main__map">
+      <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A6986c1130585e340e2dce3403f26b2263b474503c657f44c41d22014aa54f61f&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>          
+    </div>  
+    <div class="main__contacts">
+
+      <div class="main__contacts-item">
+        <div class="district">Индустриальный район</div>
+        <div class="main__contacts-address">
+          <div class="street">
+            ​Павловский тракт, 198е
+          </div>
+          <div class="opening-hours">
+            Пн-Пт с 9:00 до 18:00 <br>
+            Сб-Вс с 10:00 до 16:00  
+          </div>
+          <a class="mobile-version" href="tel:+73852224164">+7(3852) 22-41-64</a>
+        </div>
+        <a class="main__contacts-phone" href="tel:+73852224164">+7(3852) 22-41-64</a>
+      </div>
+
+      <div class="main__contacts-item">
+        <div class="district"> <span>Поток м-н</span> Октябрьский район</div>
+        <div class="main__contacts-address">
+          <div class="street">
+            ​Тимуровская, 74
+          </div>
+          <div class="opening-hours">
+            Пн-Пт с 9:00 до 18:00 <br>
+            Сб-Вс с 10:00 до 14:00
+          </div>
+          <a class="mobile-version" href="tel:+73852224164">+7(3852) 22-41-64</a>
+        </div>
+        <a class="main__contacts-phone" href="tel:+73852224164">+7(3852) 22-41-64</a>
+      </div>
+
+                <!-- вот досюда код меняем карты и адресов -->
+
+    </div>
+  </section>

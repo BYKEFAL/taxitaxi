@@ -1,143 +1,159 @@
 {%load static%}
-      <div class="container">
-        <section class="main-contacts__section" id="contacts">
-          <div class="main__title-select">
-            <h3 class="main__title">Контакты в Омске</h3>
-            <span class="header-cityAbout">Омск</span>
-            <figure class="header-expandMoreAbout">
-                <img src="{%static 'img/expand_more.svg'%}" alt="expand_more">
-            </figure>
-          </div>
-          <div class="main__map">
-            <iframe
-              src="https://yandex.ru/map-widget/v1/?um=constructor%3A7fc5228bc79dfb651b148a70d18e7e0204f47c9ea58381fe7b7cabcdd54455d2&amp;source=constructor"
-              width="1200" 
-              height="400" 
-              frameborder="0">
-            </iframe>
-          </div>
 
-          <div class="main__contacts">
-            <div class="main__contacts-item">
-              <div class="district">Октябрьский округ</div>
-              <div class="main__contacts-address">
-                <div class="street">
-                  ​​Железнодорожная 1-я, 1/1
-                </div>
-                <div class="opening-hours">
-                  Пн-Пт с 9:00 до 18:00 <br>
-                  Сб-Вс с 10:00 до 14:00  
-                </div>
-                <a class="howCanIgetTo" href="#">Как проехать</a>
-              </div>
-              <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90 <br>
-                +7‒913‒605‒95‒49</a>
-            </div>
-          </div>
-
-            <div class="main__contacts">
-              <div class="main__contacts-item">
-                <div class="district">Ленинский округ</div>
-                <div class="main__contacts-address">
-                  <div class="street">
-                    ​Труда, 74
-                  </div>
-                  <div class="opening-hours">
-                    Пн-Пт с 9:00 до 18:00 <br>
-                    Сб-Вс с 10:00 до 16:00  
-                  </div>
-                  <a class="howCanIgetTo" href="#">Как проехать</a>
-                </div>
-                <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
-              </div>
-            </div>
-
-              <div class="main__contacts">
-                <div class="main__contacts-item">
-                  <div class="district">Центральный округ</div>
-                  <div class="main__contacts-address">
-                    <div class="street">
-                      ​Арнольда Нейбута, 91а (​2 этаж)
-                    </div>
-                    <div class="opening-hours">
-                      Пн-Пт с 10:00 до 18:00 <br>
-                      Сб-Вс с 10:00 до 14:00  
-                    </div>
-                    <a class="howCanIgetTo" href="#">Как проехать</a>
-                  </div>
-                  <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
-                </div>
+   <section class="main-contacts__section" id="contacts">
+     <div class="main__title-select">
+       <h3 class="main__title">Контакты в Омске</h3>
+       <div class="dropDown-contacts">
+              <div class="dropDown-contacts-selectCity">
+                  <div class="dropDown-contacts-city">Омск</div>
+                    <figure class="dropDown-contacts-img-down">
+                      <img src="{%static 'img/expand_more.svg'%}" alt="expand more">
+                    </figure>
+                    <figure class="dropDown-contacts-img-up">
+                      <img src="{%static 'img/expand_more_up.svg'%}" alt="expand more">
+                    </figure>
               </div>
 
-              <div class="main__contacts">
-                <div class="main__contacts-item">
-                  <div class="district">Центральный округ</div>
-                  <div class="main__contacts-address">
-                    <div class="street">
-                      ​Герцена, 194 к1​
-                    </div>
-                    <div class="opening-hours">
-                      Пн-Пт с 9:00 до 18:00 <br>
-                      Сб-Вс с 10:00 до 16:00  
-                    </div>
-                    <a class="howCanIgetTo" href="#">Как проехать</a>
-                  </div>
-                  <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90 <br>
-                    +7 (3812) 21‒85‒27</a>
-                </div>
+              <div class="dropDown-contacts-list">
+                    {%for city in cities%}
+                      <a class="dropDown-contacts__item" href="{% url 'etaxi:contacts' city.name %}">{{city.name}}</a>
+                    {%endfor%}
               </div>
-
-              <div class="main__contacts">
-                <div class="main__contacts-item">
-                  <div class="district">Кировский округ</div>
-                  <div class="main__contacts-address">
-                    <div class="street">
-                      ​Енисейская, 1а​13 офис (1 этаж)
-                    </div>
-                    <div class="opening-hours">
-                      Пн-Пт с 9:00 до 18:00 <br>
-                      Сб-Вс с 10:00 до 16:00  
-                    </div>
-                    <a class="howCanIgetTo" href="#">Как проехать</a>
-                  </div>
-                  <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
-                </div>
-              </div>
-
-              <div class="main__contacts">
-                <div class="main__contacts-item">
-                  <div class="district">Кировский округ</div>
-                  <div class="main__contacts-address">
-                    <div class="street">
-                      ​Рокоссовского, 11 ​3 этаж
-                    </div>
-                    <div class="opening-hours">
-                      Пн-Пт с 9:00 до 18:00 <br>
-                      Сб-Вс с 10:00 до 14:00  
-                    </div>
-                    <a class="howCanIgetTo" href="#">Как проехать</a>
-                  </div>
-                  <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
-                </div>
-              </div>
-
-              <div class="main__contacts">
-                <div class="main__contacts-item">
-                  <div class="district">Советский округ</div>
-                  <div class="main__contacts-address">
-                    <div class="street">
-                      ​Нефтезаводская, 47/1а
-                    </div>
-                    <div class="opening-hours">
-                      Пн-Пт с 9:00 до 18:00 <br>
-                      Сб-Вс с 10:00 до 17:00  
-                    </div>
-                    <a class="howCanIgetTo" href="#">Как проехать</a>
-                  </div>
-                  <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90 <br>
-                    +7 (3812) 21‒86‒73</a>
-                </div>
-              </div>
-          </div>
-        </section>
+        </div>
       </div>
+
+
+    <!-- вот отсюда код меняем карты и адресов -->
+    
+    <div class="main__map">
+      <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A7fc5228bc79dfb651b148a70d18e7e0204f47c9ea58381fe7b7cabcdd54455d2&amp;width=100%&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>          
+    </div>  
+    <div class="main__contacts">
+
+      <div class="main__contacts-item">
+        <div class="district">Октябрьский округ</div>
+        <div class="main__contacts-address">
+          <div class="street">
+            ​​Железнодорожная 1-я, 1/1
+          </div>
+          <div class="opening-hours">
+            Пн-Пт с 9:00 до 18:00 <br>
+            Сб-Вс с 10:00 до 14:00  
+          </div>
+            <a class="mobile-version" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+            <a class="mobile-version" href="tel:+79136059549">+7‒913‒605‒95‒49</a>
+        </div>
+          <div class="contacts-phones">
+            <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+            <a class="main__contacts-phone" href="tel:+79136059549">+7‒913‒605‒95‒49</a>
+          </div>
+
+      </div>
+
+        <div class="main__contacts-item">
+          <div class="district">Ленинский округ</div>
+          <div class="main__contacts-address">
+            <div class="street">
+              ​Труда, 74
+            </div>
+            <div class="opening-hours">
+              Пн-Пт с 9:00 до 18:00 <br>
+              Сб-Вс с 10:00 до 16:00  
+            </div>
+            <a class="mobile-version" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+          </div>
+          <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+        </div>
+
+          <div class="main__contacts-item">
+            <div class="district">Центральный округ</div>
+            <div class="main__contacts-address">
+              <div class="street">
+                ​Арнольда Нейбута, 91а (​2 этаж)
+              </div>
+              <div class="opening-hours">
+                Пн-Пт с 10:00 до 18:00 <br>
+                Сб-Вс с 10:00 до 14:00  
+              </div>
+              <a class="mobile-version" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+            </div>
+            <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+          </div>
+
+          <div class="main__contacts-item">
+            <div class="district">Центральный округ</div>
+            <div class="main__contacts-address">
+              <div class="street">
+                ​Герцена, 194 к1​
+              </div>
+              <div class="opening-hours">
+                Пн-Пт с 9:00 до 18:00 <br>
+                Сб-Вс с 10:00 до 16:00  
+              </div>
+              <a class="mobile-version" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+              <a class="mobile-version" href="tel:+73812218527">+7 (3812) 21‒85‒27</a>
+            </div>
+
+
+              <div class="contacts-phones">
+                <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+                <a class="main__contacts-phone" href="tel:+73812218527">+7 (3812) 21‒85‒27</a>
+              </div>
+
+          </div>
+
+          <div class="main__contacts-item">
+            <div class="district">Кировский округ</div>
+            <div class="main__contacts-address">
+              <div class="street">
+                ​Енисейская, 1а​13 офис (1 этаж)
+              </div>
+              <div class="opening-hours">
+                Пн-Пт с 9:00 до 18:00 <br>
+                Сб-Вс с 10:00 до 16:00  
+              </div>
+              <a class="mobile-version" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+            </div>
+            <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+          </div>
+
+          <div class="main__contacts-item">
+            <div class="district">Кировский округ</div>
+            <div class="main__contacts-address">
+              <div class="street">
+                ​Рокоссовского, 11 ​3 этаж
+              </div>
+              <div class="opening-hours">
+                Пн-Пт с 9:00 до 18:00 <br>
+                Сб-Вс с 10:00 до 14:00  
+              </div>
+              <a class="mobile-version" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+            </div>
+            <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+          </div>
+
+          <div class="main__contacts-item">
+            <div class="district">Советский округ</div>
+            <div class="main__contacts-address">
+              <div class="street">
+                ​Нефтезаводская, 47/1а
+              </div>
+              <div class="opening-hours">
+                Пн-Пт с 9:00 до 18:00 <br>
+                Сб-Вс с 10:00 до 17:00  
+              </div>
+              <a class="mobile-version" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+              <a class="mobile-version" href="tel:+73812218673">+7 (3812) 21‒86‒73</a>
+            </div>
+
+              <div class="contacts-phones">
+                <a class="main__contacts-phone" href="tel:+73812218290">+7 (3812) 21‒82‒90</a>
+                <a class="main__contacts-phone" href="tel:+73812218673">+7 (3812) 21‒86‒73</a>
+              </div>
+
+          </div>
+
+                <!-- вот досюда код меняем карты и адресов -->
+
+    </div>
+  </section>

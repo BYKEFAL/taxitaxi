@@ -1,6 +1,48 @@
 {%load static%}
 <header id="header-section">
    <div class="container">
+    <!-- НОВОЕ БУРГЕР МЕНЮ с формой НАЧАЛО -->
+    <form class="application-formBurger" action="" method="post">
+        <figure class="application-closeBurger">
+            <img src="{%static 'img/menu-burgerClose.svg'%}">
+        </figure>
+        <h2 class="application-subtitleBurger">Оставьте заявку</h2>
+        <h3 class="application-textBurger">Первый день аренды авто бесплатно!</h3>
+        <input class="application-inputBurger" type="text" name="name" placeholder="Ваше имя" required></input>
+        <input class="application-inputBurger" type="tel" name="tel" placeholder="+7 (999) 999-99-99" required></input>
+        <div class="dropDown-mainBurger">
+            <div class="dropDown-main-selectCityBurger">
+              <input class="dropDown-main-cityBurger" placeholder="Выберите город"></input>
+              <figure class="dropDown-main-img-downBurger">
+                <img src="{%static 'img/expand_more.svg'%}" alt="expand more">
+              </figure>
+              <figure class="dropDown-main-img-upBurger">
+                <img src="{%static 'img/expand_more_up.svg'%}" alt="expand more">
+              </figure>
+            </div>
+            <div class="dropDown-main-listBurger">
+                    <div class="dropDown-main__itemBurger">Иркутск</div>
+                    <div class="dropDown-main__itemBurger">Барнаул</div>
+                    <div class="dropDown-main__itemBurger">Екатеринбург</div>
+                    <div class="dropDown-main__itemBurger">Кемерово</div>
+                    <div class="dropDown-main__itemBurger">Красноярск</div>
+                    <div class="dropDown-main__itemBurger">Новосибирск</div>
+                    <div class="dropDown-main__itemBurger">Новокузнецк</div>
+                    <div class="dropDown-main__itemBurger">Омск</div>
+                    <div class="dropDown-main__itemBurger">Томск</div>
+                    <div class="dropDown-main__itemBurger">Тюмень</div>
+                    <div class="dropDown-main__itemBurger">Улан-Удэ</div>
+            </div>
+        </div>
+        <button class="application-button-burger">Оставить заявку</button>
+        <div class="application-checkboxBurger">
+            <input class="custom-checkboxBurger" type="checkbox" id="confirmationBurger" name="confirmationBurger"/>
+            <label class="application-checkboxBurger" for="confirmationBurger">Подтверждаю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</label>
+        </div>
+    </form>
+
+    <!-- НОВОЕ БУРГЕР МЕНЮ с формой Конец -->
+
        <div class="actual-city">
            <div class="actual-city-top">
                <figure class="city-img-actual">
@@ -40,15 +82,44 @@
                        <ul class="header-nav-list">
                            <!-- <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:home'}">Главная</a></li>     -->
                            <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#catalog">Каталог</a></li>
-                           <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:about' citygeo.name%}">О нас</a></li>
                            <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#rent">Условия аренды</a></li>
                            <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#reviews">Отзывы</a></li>
-                           <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#contacts">Контакты</a></li>
+                           <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:contacts' citygeo.name%}">Контакты</a></li>
+                           <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:about' citygeo.name%}">О нас</a></li>
                        </ul>
                    </nav>
                    <button class="button header-nav__button">Оставить заявку</button>
                </div>   
            </div>
+
+           <!-- ЕЩЕ БУРГЕР МЕНЮ НАЧАЛО -->
+           <div class="menu-burger">
+            <figure class="burger-open">
+                <img src="{%static 'img/menu-burgerOpen.svg'%}" alt="menu">
+            </figure>
+            <figure class="burger-close">
+                <img src="{%static 'img/menu-burgerClose.svg'%}" alt="menu">
+            </figure>
+            <div class="menu-burger__list">
+                <ul class="menu-burger__items">
+                    <li class="header-nav__item"><a class="header-nav__link" href="index.html#catalog">Каталог</a></li> 
+                    <li class="header-nav__item"><a class="header-nav__link" href="index.html#rent">Условия аренды</a></li>
+                    <li class="header-nav__item"><a class="header-nav__link" href="index.html#reviews">Отзывы</a></li>
+                    <li class="header-nav__item"><a class="header-nav__link" href="pageContacts.html">Контакты</a></li>
+                    <li class="header-nav__item"><a class="header-nav__link" href="pageAboutUs.html">О нас</a></li>
+                </ul>
+                <div class="menu-burger__number">
+                    <figure class="call-burger">
+                        <img src="{%static 'img/call-header.svg'%}" alt="call">
+                    </figure>
+                    <a class="number-burger" href="tel:+73822984033">+7 (382) 298-40-33</a>
+                </div>
+                <button class="button burger-nav__button">Оставить заявку</button>
+
+            </div>
+        </div>
+            <!-- ЕЩЕ БУРГЕР МЕНЮ Конец -->
+
        </div>
     </div>   
 </header>
