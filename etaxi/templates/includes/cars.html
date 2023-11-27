@@ -3,7 +3,7 @@
    <h2 class="catalog-title title">Автомобили нашего таксопарка</h2>
    <h4 class="catalog-age">Все авто не старше 2-х лет</h4>
    {%if cars%}
-   <div class="catalog-inner">
+   <div class="catalog-inner" id="catalog-inner">
        {%for car in cars%}
        <div class="catalog__item">
            <figure class="catalog-img">
@@ -20,7 +20,15 @@
        </div>
        {%endfor%}
     {%else%}
-    <h2 class="catalog-title title">Автомобили пока не добавлены</h2>
+        <h2 class="catalog-title title">Автомобили пока не добавлены</h2>
     {%endif%}
+    <div class="catalog__controls">
+        <figure class="catalog__control">
+            <img class="prev-catalog catalog-controlls" src="{%static 'img/btn-arrow-left.svg'%}" alt="">
+        </figure>
+        <figure class="catalog__control">
+            <img class="next-catalog catalog-controlls" src="{%static 'img/btn-arrow-right.svg'%}" alt="">
+        </figure>
+    </div>
    </div>
 </section>

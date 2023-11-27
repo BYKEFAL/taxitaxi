@@ -994,7 +994,7 @@ img {
         position: relative;
       }
 
-      .catalog__item {
+    .catalog__item {
         width: 100%;
         height: 100%;
         position: absolute;
@@ -1002,37 +1002,37 @@ img {
         left: 0;
         opacity: 0;
         transition: opacity 0.5s ease;
-      }
+    }
       
-      .catalog__item.active-catalog {
+    .catalog__item .active-catalog {
         opacity: 1;
-      }
+    }
       
-      .catalog__control img {
+    .catalog__control img {
         width: 40px;
         height: 40px;
         opacity: 1;
       
         position: absolute;
         z-index: 1;
-      }
+    }
 
-      .catalog__controls {
+    .catalog__controls {
         display: block;
         margin-top: 462px;
-      }
+    }
       
-      .catalog__control .prev-catalog {
+    .catalog__control .prev-catalog {
         left: 116px;
-      }
+    }
       
-      .catalog__control .next-catalog {
+    .catalog__control .next-catalog {
         right: 116px;
-      }
+    }
 
-      .catalog__button {
+    .catalog__button {
         width: 280px;
-      }
+    }
 }
 
 /*Rent*/
@@ -3017,6 +3017,13 @@ iframe {
         width: 320px;
         height: 519px;
         left: 238px;
+        top: 40%;
+    }
+
+    ul.errorlist {
+        color: red;
+        margin-bottom: 2%;
+        font-size: 11px;
     }
 
     .application-button {

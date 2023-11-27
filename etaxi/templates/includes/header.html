@@ -1,8 +1,9 @@
 {%load static%}
 <header id="header-section">
    <div class="container">
+
     <!-- НОВОЕ БУРГЕР МЕНЮ с формой НАЧАЛО -->
-    <form class="application-formBurger" action="" method="post">
+    <!-- <form class="application-formBurger" action="" method="post">
         <figure class="application-closeBurger">
             <img src="{%static 'img/menu-burgerClose.svg'%}">
         </figure>
@@ -39,7 +40,7 @@
             <input class="custom-checkboxBurger" type="checkbox" id="confirmationBurger" name="confirmationBurger"/>
             <label class="application-checkboxBurger" for="confirmationBurger">Подтверждаю согласие на обработку персональных данных и соглашаюсь с политикой конфиденциальности</label>
         </div>
-    </form>
+    </form> -->
 
     <!-- НОВОЕ БУРГЕР МЕНЮ с формой Конец -->
 
@@ -102,11 +103,11 @@
             </figure>
             <div class="menu-burger__list">
                 <ul class="menu-burger__items">
-                    <li class="header-nav__item"><a class="header-nav__link" href="index.html#catalog">Каталог</a></li> 
-                    <li class="header-nav__item"><a class="header-nav__link" href="index.html#rent">Условия аренды</a></li>
-                    <li class="header-nav__item"><a class="header-nav__link" href="index.html#reviews">Отзывы</a></li>
-                    <li class="header-nav__item"><a class="header-nav__link" href="pageContacts.html">Контакты</a></li>
-                    <li class="header-nav__item"><a class="header-nav__link" href="pageAboutUs.html">О нас</a></li>
+                    <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#catalog">Каталог</a></li>
+                    <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#rent">Условия аренды</a></li>
+                    <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#reviews">Отзывы</a></li>
+                    <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:contacts' citygeo.name%}">Контакты</a></li>
+                    <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:about' citygeo.name%}">О нас</a></li>
                 </ul>
                 <div class="menu-burger__number">
                     <figure class="call-burger">
@@ -114,7 +115,7 @@
                     </figure>
                     <a class="number-burger" href="tel:+73822984033">+7 (382) 298-40-33</a>
                 </div>
-                <button class="button burger-nav__button">Оставить заявку</button>
+                <!-- <button class="button burger-nav__button">Оставить заявку</button> -->
 
             </div>
         </div>

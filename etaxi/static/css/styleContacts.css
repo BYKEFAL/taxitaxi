@@ -229,6 +229,7 @@ img {
   .district {
     width: 150px;
     margin-right: 20px;
+    word-break: break-word;
   }
   .district span {
     display: none;
