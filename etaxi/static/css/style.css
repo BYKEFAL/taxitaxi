@@ -277,6 +277,12 @@ img {
         height: 50px;
         margin-right: 13px;
     }
+    
+    .header-logo-burger{
+        margin-right: 0px;
+        margin-bottom: 25px;
+        margin-left: 10px;
+    }
 
     .header-call, .header-number, .header-bottom, .header-nav__button {
         display: none;
@@ -307,7 +313,7 @@ img {
     .menu-burger__list {
         display: none;
         position: absolute;
-        top: 80px;
+        top: 50px;
         left: 68px;
         background-color: #FFF;
     }
@@ -717,6 +723,10 @@ img {
     display: none;
 }
 
+.advantages-mobile{
+    display: none;
+}
+
 @media (max-width: 768px)  {
     .advantages {
         margin: 134px 0 140px;
@@ -774,6 +784,16 @@ img {
 
 
 @media (max-width: 360px)  {
+
+    .advantages__item:nth-child(3n+3) {
+        margin-right: 0;
+    }
+    
+
+    .advantages-mobile{
+        display:flex;
+    }
+
     .advantages {
         margin: 96px 0;
     }
@@ -789,9 +809,13 @@ img {
         justify-content: center;
         flex-wrap: wrap;
         width: 320px;
-        height: 560px;
+        height: 250px;
         position: relative;
       }
+
+      .advantages-desktop{
+        display: none;
+    }
 
            
     .advantages-img {
@@ -802,20 +826,21 @@ img {
       
       .advantages__items {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         width: 100%;
         height: 100%;
-        position: absolute;
+        /* position: absolute;
         top: 0;
         left: 0;
         opacity: 0;
-        transition: opacity 0.5s ease;
+        transition: opacity 0.5s ease; */
       }
       
       .advantages__item {
         width: 320px;
         min-height: 226px;
-        padding: 24px 24px 20px;
+        /* padding: 24px 24px 20px; */
+        margin: 0;
       }
 
       .advantages__items.active {
@@ -928,6 +953,9 @@ img {
     display: none;
 }
 
+.cars-mobile{
+    display: none;
+}
 
 @media (max-width: 768px)  {
     .catalog {
@@ -973,6 +1001,18 @@ img {
 
 
 @media (max-width: 360px)  {
+    .cars-mobile{
+        display: flex;
+    }
+
+    .cars-desktop{
+        display: none;
+    }
+
+    .catalog__item{
+        margin: 0;
+    }
+
     .catalog {
         margin-bottom: 156px;
     }
@@ -995,13 +1035,13 @@ img {
       }
 
     .catalog__item {
-        width: 100%;
+        max-width: 340px;
         height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity: 0;
-        transition: opacity 0.5s ease;
+        /* position: absolute;
+        top: 0; 
+        left: 0;  */
+        /* opacity: 0; */
+        /* transition: opacity 0.5s ease; */
     }
       
     .catalog__item .active-catalog {

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/itc-slider.css' %}">
 
     {%block styleContact%}
     {%endblock styleContact%}
@@ -109,11 +110,12 @@
      <!------------- endblock footer -------------->
 
     <!------------ Scripts ---------------->
-    <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script> -->
     
     {%block script%}
-    <script src="{%static 'js/app.js'%}"></script>
-    <script src="{%static 'js/videoSlider.js'%}"></script>
+    <script defer src="{%static 'js/app.js'%}"></script>
+    <script defer src="{%static 'js/videoSlider.js'%}"></script>
+    <script defer src="{%static 'js/itc-slider.js'%}"></script>
     {%endblock script%}
 
 </body>

@@ -86,7 +86,7 @@ admin.site.register(CityPark)
 admin.site.register(Driver, DriverAdmin)
 admin.site.register(TaxiCar, TaxiCarAdmin)
 admin.site.register(ParkManager, ParkManagerAdmin)
-admin.site.register(CarPark, CarParkAdmin)
+# admin.site.register(CarPark, CarParkAdmin) отключен в виду того, что пока не пользуется ничего не удалять потом можно включить.
 admin.site.register(VideoAbout)
 admin.site.register(FeedbackVideo)
 

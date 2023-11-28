@@ -2,8 +2,10 @@
 <section class="catalog" id="catalog">
    <h2 class="catalog-title title">Автомобили нашего таксопарка</h2>
    <h4 class="catalog-age">Все авто не старше 2-х лет</h4>
-   {%if cars%}
-   <div class="catalog-inner" id="catalog-inner">
+
+   
+   <div class="catalog-inner cars-desktop" id="catalog-inner "> 
+    {%if cars%}
        {%for car in cars%}
        <div class="catalog__item">
            <figure class="catalog-img">
@@ -19,16 +21,50 @@
            <button class="button catalog__button">Арендовать</button>
        </div>
        {%endfor%}
-    {%else%}
-        <h2 class="catalog-title title">Автомобили пока не добавлены</h2>
     {%endif%}
-    <div class="catalog__controls">
-        <figure class="catalog__control">
-            <img class="prev-catalog catalog-controlls" src="{%static 'img/btn-arrow-left.svg'%}" alt="">
-        </figure>
-        <figure class="catalog__control">
-            <img class="next-catalog catalog-controlls" src="{%static 'img/btn-arrow-right.svg'%}" alt="">
-        </figure>
-    </div>
+        <div class="catalog__controls">
+            <figure class="catalog__control">
+                <img class="prev-catalog catalog-controlls" src="{%static 'img/btn-arrow-left.svg'%}" alt="">
+            </figure>
+            <figure class="catalog__control">
+                <img class="next-catalog catalog-controlls" src="{%static 'img/btn-arrow-right.svg'%}" alt="">
+            </figure>
+        </div>
    </div>
+
+   <div class="catalog-inner cars-mobile itc-slider" id="catalog-inner" data-slider="itc-slider" data-loop="true">
+      
+       <div class="itc-slider-wrapper">
+         <div class="itc-slider-items">
+            {%if cars%}
+            {%for car in cars%}
+            <div class="catalog__item itc-slider-item">
+                <figure class="catalog-img">
+                    <img src="{{car.image.url}}" alt="Volkswagen Polo">
+                </figure>
+                <h3 class="catalog-subtitle subtitle">{{car.brand}} {{car.model}}</h3>
+                <ul class="catalog-text text">
+                    <li>Год выпуска: {{car.yearIssu}} г.</li>
+                    <li>{{car.get_gearType_display|safe}}</li>
+                    <li>Объем двигателя {{car.engineCapacity}} л</li>
+                    <li>Авто на газу — экономия 200 р/ 100 км в сравнении с бензином</li>
+                </ul>
+                <button class="button catalog__button">Арендовать</button>
+            </div>
+            {%endfor%}
+            {%endif%}
+                
+         </div>
+       </div>
+
+        <div class="catalog__controls">
+            <figure class="catalog__control ">
+                <img class="prev-catalog catalog-controlls itc-slider-btn itc-slider-btn-prev" src="{%static 'img/btn-arrow-left.svg'%}" alt="">
+            </figure>
+            <figure class="catalog__control">
+                <img class="next-catalog catalog-controlls itc-slider-btn itc-slider-btn-next" src="{%static 'img/btn-arrow-right.svg'%}" alt="">
+            </figure>
+        </div>
+   </div>
+
 </section>

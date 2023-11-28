@@ -101,8 +101,12 @@
             <figure class="burger-close">
                 <img src="{%static 'img/menu-burgerClose.svg'%}" alt="menu">
             </figure>
+            
             <div class="menu-burger__list">
                 <ul class="menu-burger__items">
+                    <div class="header-logo header-logo-burger">
+                        <a href="{% url 'etaxi:homecity' citygeo.name%}"><img class="header-logo__img" src="{%static 'img/logo.svg'%}" alt="etaxi logo"></a>
+                    </div>
                     <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#catalog">Каталог</a></li>
                     <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#rent">Условия аренды</a></li>
                     <li class="header-nav__item"><a class="header-nav__link" href="{%url 'etaxi:homecity' citygeo.name%}#reviews">Отзывы</a></li>

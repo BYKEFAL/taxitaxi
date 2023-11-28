@@ -16,8 +16,6 @@ dadata = Dadata(token)
 #Определение города Dadata работает только по России
 def geo(request):
     client_ip, is_routable = get_client_ip(request)
-    # client_ip = '176.59.144.81' #Новосибирск
-    # client_ip = '77.51.199.15' #Mocква, не забыть убрать тестовые IP
     try:
         response = dadata.iplocate(client_ip)['data']['city']
     except:
@@ -27,9 +25,6 @@ def geo(request):
 # Определение города через Geoip2 по всему миру
 def geo2(request):
     client_ip, is_routable = get_client_ip(request)
-    # client_ip = '176.59.144.81' #Novosybirsk
-    # client_ip = '77.51.199.15' #Moskow
-    client_ip = '183.56.207.190' #Пекин, не забыть убрать тестовые IP
     try:
         g = GeoIP2()
         # location = g.city(client_ip)['city']
@@ -80,23 +75,21 @@ def home(request, city='nogeo'):
         citygeo = CityPark.objects.get(name=city)
         
     cars = TaxiCar.objects.filter(city=citygeo)
+    
     novalid = None
     if request.method == "POST":
         form = DriverAddForm(request.POST)
         formoffer = DriverAddFormOffer(request.POST)
-        driver_phone = request.POST['phone_number']
         if form.is_valid():
-            form.save()
-            driver = Driver.objects.get(phone_number=driver_phone)
-            driver.city = citygeo
-            driver.save()
+            name = form.cleaned_data['name']
+            phone = form.cleaned_data['phone_number']
+            Driver.objects.create(phone_number=phone, name=name, city=citygeo)
             form = DriverAddForm()
             return redirect(request.META.get('HTTP_REFERER')) 
         elif formoffer.is_valid():
-            formoffer.save()
-            driver = Driver.objects.get(phone_number=driver_phone)
-            driver.city = citygeo
-            driver.save()
+            name = formoffer.cleaned_data['name']
+            phone = formoffer.cleaned_data['phone_number']
+            Driver.objects.create(phone_number=phone, name=name, city=citygeo)
             formoffer = DriverAddFormOffer()
             return redirect(request.META.get('HTTP_REFERER')) 
         else:
@@ -123,19 +116,17 @@ def about(request, city):
     if request.method == "POST":
         form = DriverAddForm(request.POST)
         formquest = DriverAddFormQuest(request.POST)
-        driver_phone = request.POST['phone_number']
         if formquest.is_valid():
-            formquest.save()
-            driver = Driver.objects.get(phone_number=driver_phone)
-            driver.city = citygeo
-            driver.save()
+            name = formquest.cleaned_data['name']
+            phone = formquest.cleaned_data['phone_number']
+            question = formquest.cleaned_data['question']
+            Driver.objects.create(phone_number=phone, name=name, city=citygeo, question=question)
             formquest = DriverAddFormQuest()
             return redirect(request.META.get('HTTP_REFERER'))
         elif form.is_valid():
-            form.save()
-            driver = Driver.objects.get(phone_number=driver_phone)
-            driver.city = citygeo
-            driver.save()
+            name = form.cleaned_data['name']
+            phone = form.cleaned_data['phone_number']
+            Driver.objects.create(phone_number=phone, name=name, city=citygeo)
             form = DriverAddForm()
             return redirect(request.META.get('HTTP_REFERER')) 
         else:
@@ -154,12 +145,10 @@ def contacts(request, city):
     novalid = None
     if request.method == "POST":
         form = DriverAddForm(request.POST)
-        driver_phone = request.POST['phone_number']
         if form.is_valid():
-            form.save()
-            driver = Driver.objects.get(phone_number=driver_phone)
-            driver.city = citygeo
-            driver.save()
+            name = form.cleaned_data['name']
+            phone = form.cleaned_data['phone_number']
+            Driver.objects.create(phone_number=phone, name=name, city=citygeo)
             form = DriverAddForm()
             return redirect(request.META.get('HTTP_REFERER'))
             # return redirect('/contacts')

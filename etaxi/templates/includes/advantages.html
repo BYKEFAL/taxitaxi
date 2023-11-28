@@ -1,7 +1,8 @@
 {%load static%}
 <section class="advantages">
     <h2 class="advantages-title title">Наши преимущества</h2>
-    <div class="advantages-inner">
+    <!-- Без слайдера -->
+    <div class="advantages-inner advantages-desktop">
         <div class="advantages__items">
             <div class="advantages__item">
                 <figure class="advantages-img">
@@ -59,4 +60,65 @@
             </figure>
         </div>
     </div>
+    <!-- без слайдера -->
+
+    <!-- =========== слайдер ============ -->
+    <div class="advantages-inner advantages-mobile itc-slider" data-slider="itc-slider" data-loop="true">
+        <div class="itc-slider-wrapper">
+          <div class="advantages__items itc-slider-items">
+            <div class="advantages__item itc-slider-item">
+                <figure class="advantages-img">
+                    <img src="{%static 'img/free_first_day.svg'%}" alt="Free first day">
+                </figure>
+                <h3 class="advantages-subtitle subtitle">Первый день работы бесплатно</h3>
+                <p class="advantages-text text">Попробуйте, освойтесь и поймите, <br> что вам удобно</p>
+            </div>
+            <div class="advantages__item itc-slider-item">
+                <figure class="advantages-img">
+                    <img src="{%static 'img/license.svg'%}" alt="License">
+                </figure>
+                <h3 class="advantages-subtitle subtitle">Лицензия на осуществление деятельности такси</h3>
+                <p class="advantages-text text"></p>
+            </div>
+            <div class="advantages__item itc-slider-item">
+                <figure class="advantages-img">
+                    <img src="{%static 'img/education.svg'%}" alt="Education">
+                </figure>
+                <h3 class="advantages-subtitle subtitle">Профессиональное обучение</h3>
+                <p class="advantages-text text">4-дневное сопровождение от успешного водителя таксопарка</p>
+            </div>
+            <div class="advantages__item itc-slider-item">
+                <figure class="advantages-img">
+                    <img src="{%static 'img/support.svg'%}" alt="Support">
+                </figure>
+                <h3 class="advantages-subtitle subtitle">Помощь менеджеров 24/7</h3>
+                <p class="advantages-text text">В сложной или непонятной ситуации <br> менеджеры помогут, расскажут, объяснят</p>
+            </div>
+            <div class="advantages__item itc-slider-item">
+                <figure class="advantages-img">
+                    <img src="{%static 'img/petrol.svg'%}" alt="Petrol">
+                </figure>
+                <h3 class="advantages-subtitle subtitle">Экономия на топливе</h3>
+                <p class="advantages-text text">Все наши авто на газу, а газ экономичнее <br> бензина на 700 ₽ за смену</p>
+            </div>
+            <div class="advantages__item itc-slider-item">
+                <figure class="advantages-img">
+                    <img src="{%static 'img/accident.svg'%}" alt="accident">
+                </figure>
+                <h3 class="advantages-subtitle subtitle">Франшиза при ДТП</h3>
+                <p class="advantages-text text">Вы не платите даже если ДТП по вашей вине</p>
+            </div>
+       </div>
+       <div class="catalog__controls">
+        <figure class="catalog__control ">
+            <img class="prev-catalog catalog-controlls itc-slider-btn itc-slider-btn-prev" src="{%static 'img/btn-arrow-left.svg'%}" alt="">
+        </figure>
+        <figure class="catalog__control">
+            <img class="next-catalog catalog-controlls itc-slider-btn itc-slider-btn-next" src="{%static 'img/btn-arrow-right.svg'%}" alt="">
+        </figure>
+        </div>
+    </div>
+
+     <!-- =========== конец слайдера ============ -->
+
 </section>
