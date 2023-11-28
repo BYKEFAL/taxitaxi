@@ -319,7 +319,7 @@ img {
     }
 
     .menu-burger__items {
-        margin-bottom: 80px;
+        margin-bottom: 30px;
     }
 
     .header-nav__item {
@@ -732,6 +732,10 @@ img {
         margin: 134px 0 140px;
     }
     
+    .advantages-mobile{
+        display: none!important;
+    }
+
     .advantages-inner {
         display: flex;
         justify-content: center;
@@ -791,7 +795,7 @@ img {
     
 
     .advantages-mobile{
-        display:flex;
+        display:flex!important;
     }
 
     .advantages {
@@ -3057,7 +3061,8 @@ iframe {
         width: 320px;
         height: 519px;
         left: 238px;
-        top: 40%;
+        top: 42%;
+        left: 67%;
     }
 
     ul.errorlist {

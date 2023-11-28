@@ -1,44 +1,75 @@
 {%load static%}
+{% load embed_video_tags %}
 
 <section class="reviews" id="reviews">
    <h2 class="reviews-title title">Отзывы водителей о Ё-такси</h2>
    <div class="gallery">
        <div class="gallery-container">
            <div class="gallery-item gallery-item-1" data-index="1">
-               <video class="video-item video-item-1" max-width="588" max-height="330" controls="controls">
-                   <source src="{%static 'video/review_01.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            {%if videos.1.video%}
+               <video class="video-item video-item-1" max-width="588" max-height="330" controls>
+                   <source src="{{videos.1.video.url}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                 </video>
-               <div class="reviews-text text">Сандара Аян, Томск</div>
+                {%else%}
+                   {% video videos.1.youtube as my_video %}
+                   {% video my_video "588x330" %}
+                   {% endvideo %}
+                {%endif%}
+               <div class="reviews-text text">{{videos.1.name}}, {{videos.1.city.name}}</div>
            </div>
            <div class="gallery-item gallery-item-2" data-index="2">
-               <video class="video-item video-item-2" max-width="588" max-height="330" controls="controls">
-                   <source src="{%static 'video/review_02.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            {%if videos.2.video%}
+               <video class="video-item video-item-2" max-width="588" max-height="330" controls>
+                   <source src="{{videos.2.video.url}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                 </video>
-               <div class="reviews-text text">Александр Белоусов, Кемерово</div>
+                {%else%}
+                   {% video videos.2.youtube as my_video %}
+                   {% video my_video%}
+                   {% endvideo %}
+                {%endif%}
+               <div class="reviews-text text">{{videos.2.name}}, {{videos.2.city.name}}</div>
            </div>
            <div class="gallery-item gallery-item-3 gallery-item--active" data-index="3" >
-               <video class="video-item video-item-3 active-video" max-width="588" max-height="330" controls="controls">
-                   <source src="{%static 'video/review_03.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            {%if videos.0.video%}
+               <video class="video-item video-item-3 active-video" max-width="588" max-height="330" controls>
+                   <source src="{{videos.0.video.url}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                 </video>
-               <div class="reviews-text text">Максим Надыкта, Новокузнецк</div>
+                {%else%}
+                   {% video videos.0.youtube as my_video %}
+                   {% video my_video "588x330" %}
+                   {% endvideo %}
+                {%endif%}
+               <div class="reviews-text text">{{videos.0.name}}, {{videos.0.city.name}}</div>
            </div>
            <div class="gallery-item gallery-item-4" data-index="4">
-               <video class="video-item video-item-4" max-width="588" max-height="330" controls="controls">
-                   <source src="{%static 'video/review_04.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            {%if videos.3.video%}
+               <video class="video-item video-item-4" max-width="588" max-height="330" controls>
+                   <source src="{{videos.3.video.url}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                 </video>
-               <div class="reviews-text text">Элвин Кахраман, Красноярск</div>
+                {%else%}
+                   {% video videos.3.youtube as my_video %}
+                   {% video my_video "588x330" %}
+                   {% endvideo %}
+                {%endif%}
+               <div class="reviews-text text">{{videos.3.name}}, {{videos.3.city.name}}</div>
            </div>
            <div class="gallery-item gallery-item-5" data-index="5">
-               <video class="video-item video-item-5" max-width="588" max-height="330" controls="controls">
-                   <source src="{%static 'video/review_05.mp4'%}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            {%if videos.4.video%}
+               <video class="video-item video-item-5" max-width="588" max-height="330" controls>
+                   <source src="{{videos.4.video.url}}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
                 </video>
-               <div class="reviews-text text">Данил Шереметьев, Красноярск</div>
+                {%else%}
+                   {% video videos.4.youtube as my_video %}
+                   {% video my_video "588x330" %}
+                   {% endvideo %}
+                {%endif%}
+               <div class="reviews-text text">{{videos.4.name}}, {{videos.4.city.name}}</div>
            </div>
        </div>
        <div class="gallery-controls"></div>
-       <figure class="btn-play">
+       <!-- <figure class="btn-play">
            <img src="{%static 'img/btn-play.svg'%}" alt="btn-play">
-       </figure>
+       </figure> -->
    </div>
    <div id="reviews-text__slider">
     <div id="carousel">

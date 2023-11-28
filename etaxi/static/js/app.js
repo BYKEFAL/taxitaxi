@@ -166,10 +166,11 @@ function closeBurgerMenu() {
   footer.style.display = 'block';
 }
 
-// const showButtonBurger = document.querySelector(".burger-nav__button");
+const showButtonBurger = document.querySelector(".burger-nav__button");
 // const applicationFormBurger = document.querySelector('.application-formBurger');
 
-// showButtonBurger.addEventListener("click", showFormBurger)
+showButtonBurger.addEventListener("click", showForm)
+showButtonBurger.addEventListener("click", closeBurgerMenu)
 
 // function showFormBurger() {
 //   burgerOpen.style.display = 'none';

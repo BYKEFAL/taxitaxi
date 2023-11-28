@@ -99,8 +99,11 @@ def home(request, city='nogeo'):
         form = DriverAddForm()
         formoffer = DriverAddFormOffer()
         
+        
+    videos = FeedbackVideo.objects.all()
+        
     context = {'cities': cities, 'form': form, 
-               'formoffer': formoffer, 'novalid': novalid, 'citygeo': citygeo, 'cars':cars}
+               'formoffer': formoffer, 'novalid': novalid, 'citygeo': citygeo, 'cars':cars, 'videos': videos}
    
     return render(request, 'index.html', context)
 
