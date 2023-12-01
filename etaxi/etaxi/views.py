@@ -15,7 +15,11 @@ dadata = Dadata(token)
 
 #Определение города Dadata работает только по России
 def geo(request):
-    client_ip, is_routable = get_client_ip(request)
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+       client_ip = x_forwarded_for.split(',')[-1].strip()
+    else:
+       client_ip = request.META.get('REMOTE_ADDR')
     try:
         response = dadata.iplocate(client_ip)['data']['city']
     except:
@@ -24,7 +28,11 @@ def geo(request):
 
 # Определение города через Geoip2 по всему миру
 def geo2(request):
-    client_ip, is_routable = get_client_ip(request)
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+       client_ip = x_forwarded_for.split(',')[-1].strip()
+    else:
+       client_ip = request.META.get('REMOTE_ADDR')
     try:
         g = GeoIP2()
         # location = g.city(client_ip)['city']
@@ -83,13 +91,17 @@ def home(request, city='nogeo'):
         if form.is_valid():
             name = form.cleaned_data['name']
             phone = form.cleaned_data['phone_number']
-            Driver.objects.create(phone_number=phone, name=name, city=citygeo)
+            citydriver = citygeo
+            drivernew = Driver(phone_number=phone, name=name, city=citydriver)
+            drivernew.save()
             form = DriverAddForm()
             return redirect(request.META.get('HTTP_REFERER')) 
         elif formoffer.is_valid():
             name = formoffer.cleaned_data['name']
             phone = formoffer.cleaned_data['phone_number']
-            Driver.objects.create(phone_number=phone, name=name, city=citygeo)
+            citydriver = citygeo
+            drivernew = Driver(phone_number=phone, name=name, city=citydriver)
+            drivernew.save()
             formoffer = DriverAddFormOffer()
             return redirect(request.META.get('HTTP_REFERER')) 
         else:
@@ -123,13 +135,17 @@ def about(request, city):
             name = formquest.cleaned_data['name']
             phone = formquest.cleaned_data['phone_number']
             question = formquest.cleaned_data['question']
-            Driver.objects.create(phone_number=phone, name=name, city=citygeo, question=question)
+            citydriver = citygeo
+            drivernew = Driver(phone_number=phone, name=name, city=citydriver, question=question)
+            drivernew.save()
             formquest = DriverAddFormQuest()
             return redirect(request.META.get('HTTP_REFERER'))
         elif form.is_valid():
             name = form.cleaned_data['name']
             phone = form.cleaned_data['phone_number']
-            Driver.objects.create(phone_number=phone, name=name, city=citygeo)
+            citydriver = citygeo
+            drivernew = Driver(phone_number=phone, name=name, city=citydriver)
+            drivernew.save()
             form = DriverAddForm()
             return redirect(request.META.get('HTTP_REFERER')) 
         else:
@@ -151,7 +167,9 @@ def contacts(request, city):
         if form.is_valid():
             name = form.cleaned_data['name']
             phone = form.cleaned_data['phone_number']
-            Driver.objects.create(phone_number=phone, name=name, city=citygeo)
+            citydriver = citygeo
+            drivernew = Driver(phone_number=phone, name=name, city=citydriver)
+            drivernew.save()
             form = DriverAddForm()
             return redirect(request.META.get('HTTP_REFERER'))
             # return redirect('/contacts')

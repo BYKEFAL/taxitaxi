@@ -3059,7 +3059,7 @@ iframe {
 @media (max-width: 360px)  {
     .application-form {
         width: 320px;
-        height: 519px;
+        min-height: 440px;
         left: 238px;
         top: 42%;
         left: 67%;
